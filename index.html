@@ -874,6 +874,25 @@
     }
     .montseny-wildlife li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
 
+    /* ─── TIMELINE IMAGE ─── */
+    .tl-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      margin-top: 16px;
+      opacity: 0.9;
+    }
+
+    /* ─── ACTIVITY CARD IMAGE ─── */
+    .activity-card-img {
+      width: calc(100% + 72px);
+      margin: -40px -36px 20px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
     /* ─── ALT LODGING ─── */
     .lodging-grid {
       display: grid;
@@ -1083,6 +1102,7 @@
         <p class="activity-desc">Club de Golf Montanya is minutes from the masia — a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="activity-card-img" />
         <span class="activity-icon">🌑</span>
         <h3 class="activity-title">Total Solar Eclipse</h3>
         <p class="activity-desc">On August 12, a total solar eclipse crosses Spain at sunset. Drive ~2 hrs to Tarragona for totality, or watch a stunning deep partial eclipse from the masia. One of nature's greatest spectacles — and it's happening right on our doorstep.</p>
@@ -1141,6 +1161,7 @@
           <span class="tl-badge" style="border-color:var(--green-lt);color:var(--green-lt);">Total Solar Eclipse</span>
           <div class="tl-title">Drive south. Watch the sky go dark. 🌑</div>
           <p class="tl-desc">The total solar eclipse crosses Spain at sunset on August 12. We'll drive roughly 2 hours south to catch totality — darkness falls around 8:30 pm. Dinner under the eclipse, then back through the mountains. One of those evenings you don't forget.</p>
+          <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="tl-img" />
         </div>
       </div>
 

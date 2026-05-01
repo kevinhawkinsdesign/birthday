@@ -83,6 +83,9 @@
       position: relative;
       overflow: hidden;
       background-color: var(--brown);
+      background-image: url('https://www.spain.info/export/sites/segtur/.content/imagenes/cabeceras-grandes/naturaleza/parque_natural_montseny_s42629806.jpg_604889389.jpg');
+      background-size: cover;
+      background-position: center;
     }
 
     /* SVG mountain background */
@@ -99,7 +102,7 @@
     .hero-bg-sky {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, #1A120A 0%, #3D2B1F 40%, #6B4C34 100%);
+      background: linear-gradient(180deg, rgba(10,6,2,0.82) 0%, rgba(30,18,8,0.75) 50%, rgba(61,43,31,0.85) 100%);
     }
     .hero-bg-stars {
       position: absolute;
@@ -282,6 +285,64 @@
     .ruled-divider::before,
     .ruled-divider::after { content: ''; flex: 1; height: 1px; background: var(--parchment); }
     .ruled-divider-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* ─── LETTER ─── */
+    .letter-wrap {
+      background: var(--cream);
+      padding: 96px 24px;
+    }
+    .letter-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .letter-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 8px;
+    }
+    .letter-rule::before,
+    .letter-rule::after {
+      content: '';
+      height: 1px;
+      width: 80px;
+      background: var(--gold);
+      opacity: 0.45;
+    }
+    .letter-salutation {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.85;
+      color: var(--brown);
+      margin-bottom: 36px;
+    }
+    .letter-body p + p { margin-top: 20px; }
+    .letter-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--stone);
+      font-style: italic;
+    }
+    .letter-sign strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--terra);
+      margin-top: 4px;
+      font-style: italic;
+    }
 
     /* ─── DETAILS BAND ─── */
     .details-band {
@@ -504,6 +565,34 @@
     .vd-text h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 3px; color: var(--brown); }
     .vd-text p { font-size: 0.88rem; color: var(--stone); line-height: 1.55; }
 
+    /* ─── INSTAGRAM ─── */
+    .instagram-wrap { background: var(--parchment); }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .instagram-grid .instagram-media {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    .instagram-follow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
+    .instagram-follow a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .instagram-follow a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .instagram-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
     /* ─── HOTEL ─── */
     .hotel-wrap { background: var(--parchment); }
     .hotel-layout {
@@ -593,6 +682,130 @@
       font-size: 0.85rem;
       line-height: 1.55;
       font-weight: 700;
+    }
+
+    /* ─── CALCULATOR ─── */
+    .calc-wrap { background: var(--parchment); }
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .calc-inputs { display: flex; flex-direction: column; gap: 28px; }
+    .calc-row { display: flex; flex-direction: column; gap: 8px; }
+    .calc-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .calc-label span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--terra);
+      font-weight: 400;
+    }
+    .calc-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 3px;
+      background: rgba(61,43,31,0.2);
+      outline: none;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .calc-tick {
+      font-size: 0.72rem;
+      color: var(--stone);
+      text-align: center;
+    }
+    .calc-result {
+      background: var(--brown);
+      padding: 36px;
+      position: sticky;
+      top: 80px;
+    }
+    .calc-result-title {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .calc-lines { display: flex; flex-direction: column; gap: 0; }
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .calc-line-label { font-size: 0.88rem; color: rgba(247,237,216,0.6); }
+    .calc-line-label em { display: block; font-size: 0.75rem; color: rgba(247,237,216,0.35); font-style: normal; margin-top: 2px; }
+    .calc-line-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+    .calc-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gold);
+    }
+    .calc-total-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .calc-total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .calc-note {
+      font-size: 0.75rem;
+      color: rgba(247,237,216,0.3);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-result { position: static; }
     }
 
     /* ─── RSVP ─── */
@@ -696,6 +909,151 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── RESPONSIVE ─── */
+    /* ─── VENUE PHOTO ─── */
+    .venue-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── PHOTO GRID ─── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── MONTSENY ─── */
+    .montseny-wrap { background: var(--green); }
+    .montseny-wrap .section-label { color: rgba(247,237,216,0.65); }
+    .montseny-wrap .section-label::before { background: rgba(247,237,216,0.4); }
+    .montseny-wrap .section-title { color: var(--cream); }
+    .montseny-wrap .section-sub { color: rgba(247,237,216,0.65); }
+    .montseny-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(0,0,0,0.2);
+      margin-bottom: 44px;
+    }
+    .montseny-stat {
+      background: rgba(0,0,0,0.18);
+      padding: 28px 16px;
+      text-align: center;
+    }
+    .montseny-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .montseny-stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(247,237,216,0.6);
+      margin-top: 8px;
+      display: block;
+    }
+    .montseny-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .montseny-text p {
+      font-size: 0.93rem;
+      line-height: 1.8;
+      color: rgba(247,237,216,0.75);
+    }
+    .montseny-text p + p { margin-top: 14px; }
+    .montseny-wildlife {
+      background: rgba(0,0,0,0.18);
+      padding: 28px;
+    }
+    .montseny-wildlife h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .montseny-wildlife ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .montseny-wildlife li {
+      font-size: 0.87rem;
+      color: rgba(247,237,216,0.7);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .montseny-wildlife li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+    /* ─── TIMELINE IMAGE ─── */
+    .tl-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      margin-top: 16px;
+      opacity: 0.9;
+    }
+
+    /* ─── ACTIVITY CARD IMAGE ─── */
+    .activity-card-img {
+      width: calc(100% + 72px);
+      margin: -40px -36px 20px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── ALT LODGING ─── */
+    .lodging-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .lodging-card {
+      background: var(--cream);
+      border: 1px solid rgba(61,43,31,0.12);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lodging-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+    .lodging-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--brown);
+      line-height: 1.3;
+    }
+    .lodging-card p { font-size: 0.87rem; color: var(--stone); line-height: 1.65; flex: 1; }
+    .lodging-card .btn { align-self: flex-start; margin-top: 4px; }
+
+    @media (max-width: 900px) {
+      .montseny-stats { grid-template-columns: repeat(2, 1fr); }
+      .montseny-body { grid-template-columns: 1fr; }
+      .lodging-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .details-grid { grid-template-columns: repeat(2, 1fr); }
@@ -745,7 +1103,7 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">August 10 – 16, 2026</div>
+    <div class="hero-eyebrow">August 11 – 16, 2026</div>
 
     <h1 class="hero-title">
       Kevin's
@@ -784,6 +1142,24 @@
   </div>
 </section>
 
+<!-- LETTER -->
+<div class="letter-wrap">
+  <div class="letter-inner reveal">
+    <div class="letter-rule">✦</div>
+    <p class="letter-salutation">To my favourite people,</p>
+    <div class="letter-body">
+      <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I genuinely love, in the mountains, with good wine and open sky.</p>
+      <p>You're here because you matter to me. Because I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise. Because I want to wake up on August 11th knowing the people I care most about are just down the hall, or out on the terrace, or somewhere in the hills with me.</p>
+      <p>It'll be quiet and full — full of nature, of animals, of long meals that go on too long in the best way. There might be a solar eclipse. There will definitely be wine.</p>
+      <p>I just want to be with you. That's the whole plan.</p>
+    </div>
+    <div class="letter-sign">
+      With so much love,
+      <strong>Kevin</strong>
+    </div>
+  </div>
+</div>
+
 <!-- DETAILS BAND -->
 <div id="details" class="details-band">
   <div class="details-grid">
@@ -796,8 +1172,8 @@
     <div class="detail-item reveal">
       <span class="detail-icon">📅</span>
       <div class="detail-label">Dates</div>
-      <div class="detail-value">Aug 10 – 16, 2026</div>
-      <div class="detail-sub">Arrive Sunday, depart Sunday. 6 nights together in the mountains.</div>
+      <div class="detail-value">Aug 11 – 16, 2026</div>
+      <div class="detail-sub">Arrive Monday, depart Sunday. 5 nights together in the mountains.</div>
     </div>
     <div class="detail-item reveal">
       <span class="detail-icon">📍</span>
@@ -825,36 +1201,49 @@
 
     <div class="activities-grid">
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Hiking in the mountains" class="activity-card-img" />
         <span class="activity-icon">🥾</span>
         <h3 class="activity-title">Hiking</h3>
         <p class="activity-desc">Montseny Natural Park is right on our doorstep — trails through oak and beech forests, waterfalls, and sweeping views of the Osona valley. All levels welcome.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/589821/pexels-photo-589821.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Autumn forest hunting grounds" class="activity-card-img" />
         <span class="activity-icon">🦌</span>
         <h3 class="activity-title">Hunting</h3>
         <p class="activity-desc">The mountains around Brull are classic hunting country. Whether you're an old hand or a first-timer, we'll have days out in the field to look forward to.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/5326898/pexels-photo-5326898.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Outdoor swimming pool" class="activity-card-img" />
         <span class="activity-icon">🏊</span>
         <h3 class="activity-title">Swimming</h3>
         <p class="activity-desc">Cool off in the pool with cold drinks, good conversation, and zero agenda. The height of an August afternoon in Catalonia.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Wine glasses tasting" class="activity-card-img" />
         <span class="activity-icon">🍷</span>
         <h3 class="activity-title">Wine Tastings</h3>
-        <p class="activity-desc">Catalonia produces world-class wine and cava. We'll explore nearby bodegas and enjoy long lunches with bottles of something excellent from the region.</p>
+        <p class="activity-desc">Two exceptional bodegas are right on our doorstep. <a href="https://cellersantmiqueldolo.com/producto/visites-descobrir-el-celler/" target="_blank" style="color:var(--terra);font-weight:700;">Celler Sant Miquel d'Oló</a> — a family winery at 800m with a Romanesque hermitage and tastings of 4 wines with local products. And <a href="https://www.lesacacies.com/enoturismo/" target="_blank" style="color:var(--terra);font-weight:700;">Les Acàcies</a> in Avinyó — claimed to be the smallest winery in the world, guided vineyard tour with cheese, sausages and pa amb tomàquet for €15/person.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/17383426/pexels-photo-17383426.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Golf course landscape" class="activity-card-img" />
         <span class="activity-icon">⛳</span>
         <h3 class="activity-title">Golf</h3>
-        <p class="activity-desc">Club de Golf Montanya is minutes from the masia — a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops.</p>
+        <p class="activity-desc">Club de Golf Montanya is minutes from the masia — a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops. 9 holes €100 · 18 holes €140.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="activity-card-img" />
         <span class="activity-icon">🌑</span>
         <h3 class="activity-title">Total Solar Eclipse</h3>
         <p class="activity-desc">On August 12, a total solar eclipse crosses Spain at sunset. Drive ~2 hrs to Tarragona for totality, or watch a stunning deep partial eclipse from the masia. One for the books.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/22823/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Pottery hands in clay" class="activity-card-img" />
+        <span class="activity-icon">🏺</span>
+        <h3 class="activity-title">Pottery</h3>
+        <p class="activity-desc">Get your hands in the clay. A grounding, unhurried activity that fits perfectly with the pace of the week — and you leave with something you actually made.</p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="https://canbrull.com/images/can-brull-hero.jpg" alt="Masia Can Brull" class="activity-card-img" />
         <span class="activity-icon">🪵</span>
         <h3 class="activity-title">Just Chilling</h3>
         <p class="activity-desc">Long dinners on the terrace. Evening fires. Slow mornings with coffee and nowhere to be. The best kind of week.</p>
@@ -869,15 +1258,15 @@
     <div class="reveal">
       <div class="section-label">The Week</div>
       <h2 class="section-title">August in El Brull</h2>
-      <p class="section-sub">A rough outline — expect it to evolve based on weather, mood, and how the previous night went.</p>
+      <p class="section-sub">Two fixed points. Everything else flows with the mood, the weather, and the people.</p>
     </div>
 
     <div class="timeline">
 
       <div class="timeline-item reveal">
         <div class="tl-date">
-          <span class="tl-date-day">10</span>
-          <span class="tl-date-dow">Sunday</span>
+          <span class="tl-date-day">11</span>
+          <span class="tl-date-dow">Tuesday</span>
         </div>
         <div class="tl-spine">
           <div class="tl-dot"></div>
@@ -892,81 +1281,33 @@
 
       <div class="timeline-item reveal">
         <div class="tl-date">
-          <span class="tl-date-day">11</span>
-          <span class="tl-date-dow">Tuesday</span>
+          <span class="tl-date-day">12</span>
+          <span class="tl-date-dow">Wednesday</span>
         </div>
         <div class="tl-spine">
           <div class="tl-dot" style="background:var(--terra);"></div>
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--terra);color:var(--terra);">The Birthday</span>
-          <div class="tl-title">Kevin turns 32 🎂</div>
-          <p class="tl-desc">Morning hike or golf, afternoon at the pool, and an epic birthday dinner at the masia in the evening. Dress well, eat well, drink better.</p>
+          <span class="tl-badge" style="border-color:var(--terra);color:var(--terra);">Arrival + Birthday</span>
+          <div class="tl-title">Arrive. Settle in. Celebrate. 🎂</div>
+          <p class="tl-desc">Arrive at your own pace, check into Hotel Montanyà, then make your way to Can Brull. Birthday dinner at the masia — unhurried, around the table, with good wine and the people who matter. That's the whole plan.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
         <div class="tl-date">
-          <span class="tl-date-day">12</span>
-          <span class="tl-date-dow">Wednesday</span>
-        </div>
-        <div class="tl-spine">
-          <div class="tl-dot" style="background:var(--green);"></div>
-          <div class="tl-line"></div>
-        </div>
-        <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--green-lt);color:var(--green-lt);">Field Day + Eclipse</span>
-          <div class="tl-title">Hunting &amp; Total Solar Eclipse 🌑</div>
-          <p class="tl-desc">Morning hunt in the Montseny hills, then the main event: a <strong style="color:var(--cream);">total solar eclipse</strong> crossing Spain at sunset. Drive ~2 hrs south to Tarragona for totality or catch a deep partial eclipse from the masia.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="tl-date">
-          <span class="tl-date-day">13</span>
-          <span class="tl-date-dow">Thursday</span>
+          <span class="tl-date-day">13-15</span>
+          <span class="tl-date-dow">Thu - Saturday</span>
         </div>
         <div class="tl-spine">
           <div class="tl-dot" style="background:var(--gold);"></div>
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge">Wine Day</span>
-          <div class="tl-title">Bodega Tour &amp; Long Lunch</div>
-          <p class="tl-desc">A visit to a nearby Catalan winery, tasting our way through the region's best reds and cava. Followed by a long lunch that bleeds into a long afternoon.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="tl-date">
-          <span class="tl-date-day">14</span>
-          <span class="tl-date-dow">Friday</span>
-        </div>
-        <div class="tl-spine">
-          <div class="tl-dot"></div>
-          <div class="tl-line"></div>
-        </div>
-        <div class="tl-content">
-          <span class="tl-badge">Golf</span>
-          <div class="tl-title">Club de Golf Montanya</div>
-          <p class="tl-desc">18 holes on one of Catalonia's most scenic courses, 5 minutes from the masia. Non-golfers can explore Brull village, hit the spa, or claim a sun lounger.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="tl-date">
-          <span class="tl-date-day">15</span>
-          <span class="tl-date-dow">Saturday</span>
-        </div>
-        <div class="tl-spine">
-          <div class="tl-dot"></div>
-          <div class="tl-line"></div>
-        </div>
-        <div class="tl-content">
-          <span class="tl-badge">Free</span>
-          <div class="tl-title">Last Full Day — Your Call</div>
-          <p class="tl-desc">Day trip to Barcelona, another hike, pool, cards, or just sitting on the terrace. Final dinner together at the masia — the one nobody wants to end.</p>
+          <span class="tl-badge">No fixed agenda</span>
+          <div class="tl-title">The middle days — yours to shape</div>
+          <p class="tl-desc">These days belong to the group. The masia is always the home base. Some things that might happen: morning hunts in the Montseny hills, winery tour and tasting, pottery sessions, a long swim, golf at Club de Golf Montanya, a treatment at Senzia Spa, or an afternoon that turns into an evening around the fire. Nothing is mandatory. Everything is available.</p>
         </div>
       </div>
 
@@ -980,9 +1321,9 @@
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--stone);color:var(--stone);">Farewell</span>
-          <div class="tl-title">Until Next Time</div>
-          <p class="tl-desc">Final breakfast, fond farewells, and the drive back to Barcelona airport. Safe travels — and start thinking about what you want to do for 33.</p>
+          <span class="tl-badge">The Weekend</span>
+          <div class="tl-title">City or countryside — pick your exit</div>
+          <p class="tl-desc">The final day opens things up. Head into Barcelona for the afternoon — beach, architecture, food, whatever calls you. Or stay in the mountains and visit one of the wineries just down the road. Final farewells, then the drive back to Barcelona airport.</p>
         </div>
       </div>
 
@@ -999,14 +1340,10 @@
       <p class="section-sub">Our masia in El Brull is where most of the magic will happen. A traditional Catalan farmhouse surrounded by mountains, forest, and good people.</p>
     </div>
 
-    <div class="venue-layout reveal">
-      <div class="venue-visual">
-        <div class="venue-img-box">
-          <div class="venue-img-icon">🏔️</div>
-          <div class="venue-img-name">Masia Can Brull</div>
-          <div class="venue-img-sub">El Brull, Catalonia</div>
-        </div>
-        <p class="venue-caption">A private farmhouse retreat in the Montseny foothills.</p>
+    <div class="venue-layout">
+      <div class="venue-visual reveal">
+        <img src="https://canbrull.com/images/can-brull-hero.jpg" alt="Masia Can Brull, El Brull, Catalonia" class="venue-photo" />
+        <p class="venue-caption">Masia Can Brull · El Brull · Catalonia</p>
       </div>
 
       <div class="venue-details">
@@ -1014,34 +1351,131 @@
           <div class="vd-icon">🏠</div>
           <div class="vd-text">
             <h4>The Setting</h4>
-            <p>A beautifully restored 18th-century masia set on 30 acres of private land. Stone walls, terra-cotta tiles, terraces with sweeping views, and enough room for everyone to find their corner.</p>
+            <p>A beautifully restored 18th-century masia set on 200 acres of private land. Stone walls, terra-cotta tiles, terraces with sweeping views, and enough room for everyone to find their corner.</p>
           </div>
         </div>
         <div class="venue-detail-row">
           <div class="vd-icon">🍽️</div>
           <div class="vd-text">
-            <h4>Food & Drink</h4>
-            <p>A professional kitchen and dining room that seats 20+ for dinners. Wine cellar with curated Catalan selections. Mezze boards, farm-to-table prepared each evening.</p>
+            <h4>200 Acres of Nature</h4>
+            <p>The masia owns approximately 200 acres (~80 hectares) of the Montseny nature reserve — private woodland, open fields, and trails right on the property. The mountains start at the doorstep.</p>
           </div>
         </div>
         <div class="venue-detail-row">
-          <div class="vd-icon">🏊‍♂️</div>
+          <div class="vd-icon">🐕</div>
           <div class="vd-text">
-            <h4>Recreation</h4>
-            <p>A heated infinity pool. Multiple sitting areas, a fire pit, billiards table. Enough space for 20+ guests to spread out and enjoy each other's company without crowding.</p>
+            <h4>Meet the Dogs</h4>
+            <p>The masia has three resident dogs — small to medium size, friendly, and definitely not biters. They'll probably follow you on walks and claim the best spot by the fire.</p>
           </div>
         </div>
         <div class="venue-detail-row">
-          <div class="vd-icon">🌲</div>
+          <div class="vd-icon">⛳</div>
           <div class="vd-text">
-            <h4>The Land</h4>
-            <p>30 acres of private woodland and meadow. Direct access to Montseny Natural Park trails. Hunting grounds on and around the property, plus all the hiking you could want.</p>
+            <h4>Nearby</h4>
+            <p>Club de Golf Montanya is minutes away. Brull village, hiking trailheads, and hunting grounds all within easy reach.</p>
           </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;">
+          <a href="https://canbrull.com/" target="_blank" class="btn btn-dark">Visit Can Brull &rarr;</a>
+          <a href="https://canbrull.com/property/como-llegar-a-can-brull/" target="_blank" class="btn btn-secondary" style="color:var(--brown);border-color:var(--brown-mid);">Directions &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- MONTSENY -->
+<div class="section-wrap montseny-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Natural Park</div>
+      <h2 class="section-title">Montseny Natural Park</h2>
+      <p class="section-sub">One of Europe's most biodiverse protected areas, and our backyard for the week. The masia sits within the reserve, on 200 acres of its own land.</p>
+    </div>
+
+    <div class="montseny-stats reveal">
+      <div class="montseny-stat">
+        <span class="montseny-stat-num">31,000+</span>
+        <span class="montseny-stat-label">Hectares of park</span>
+      </div>
+      <div class="montseny-stat">
+        <span class="montseny-stat-num">1978</span>
+        <span class="montseny-stat-label">UNESCO Biosphere Reserve</span>
+      </div>
+      <div class="montseny-stat">
+        <span class="montseny-stat-num">270+</span>
+        <span class="montseny-stat-label">Vertebrate species</span>
+      </div>
+      <div class="montseny-stat">
+        <span class="montseny-stat-num">600+</span>
+        <span class="montseny-stat-label">Plant species</span>
+      </div>
+    </div>
+
+    <div class="montseny-body reveal">
+      <div class="montseny-text">
+        <p>Montseny sits 50km north of Barcelona in the Catalan Pre-Coastal Range, straddling the districts of Osona, La Selva, and Vallès Oriental. Its range of altitude — from valley floors to the 1,706m summit of Turó de l'Home — creates a remarkable layering of ecosystems: holm oak and cork oak on the lower slopes, pine forests through the middle, and beech and silver fir closer to the peaks.</p>
+        <p>That natural fir forest is the southernmost in Europe, and the main reason UNESCO declared the area a Biosphere Reserve in 1978. The reserve was later extended to cover more than 50,000 hectares.</p>
+        <p>For us, it's a backdrop for morning hikes, evening fires, and the kind of stillness that's increasingly hard to find. The masia's own 200 acres give us a private slice of it all.</p>
+        <a href="https://www.spain.info/en/nature/montseny-natural-park/" target="_blank" class="btn btn-secondary" style="color:var(--cream);border-color:rgba(247,237,216,0.4); margin-top:20px; display:inline-flex;">Learn more &rarr;</a>
+      </div>
+      <div class="montseny-wildlife">
+        <h4>Wildlife in the park</h4>
+        <ul>
+          <li>Wild boar, badger and grey dormouse roam the forest floor</li>
+          <li>Woodcock, bullfinch and other Central European birds nest here</li>
+          <li>The Montseny brook newt — found nowhere else on Earth</li>
+          <li>Pyrenean newt, grass frog and Aesculapian snake in the streams</li>
+          <li>Mediterranean and Central European fauna communities overlapping — a rare convergence</li>
+          <li>And of course, the three dogs at Can Brull, who know every trail</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="section-wrap instagram-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Landscape</div>
+      <h2 class="section-title">See for Yourself</h2>
+      <p class="section-sub">A glimpse of the mountains, the masia, and the week ahead.</p>
+    </div>
+
+    <div class="photo-grid reveal">
+      <img src="https://s0.wklcdn.com/image_2/76790/1880113/675144Master.jpg" alt="Montseny landscape near El Brull" />
+      <img src="https://s2.wklcdn.com/image_2/76790/1880119/675179Master.jpg" alt="Countryside around El Brull, Catalonia" />
+    </div>
+
+    <div class="instagram-grid reveal">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DWi1OfcCKL2/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DWi1OfcCKL2/" target="_blank">View on Instagram</a>
+      </blockquote>
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DQR0PX8ABDU/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DQR0PX8ABDU/" target="_blank">View on Instagram</a>
+      </blockquote>
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DVp_r61CO34/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DVp_r61CO34/" target="_blank">View on Instagram</a>
+      </blockquote>
+    </div>
+
+    <div class="instagram-follow reveal">
+      <span>More photos →</span>
+      <a href="https://www.instagram.com/canbrull" target="_blank">@canbrull on Instagram</a>
+    </div>
+  </div>
+</div>
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- HOTEL -->
 <div id="hotel" class="hotel-wrap">
@@ -1053,11 +1487,13 @@
         <p class="section-sub">Most of the week we'll be at the masia, but we've booked rooms at a sister property in the mountains just a few minutes away for accommodations.</p>
       </div>
 
-      <div class="hotel-layout reveal">
-        <div class="hotel-img">
-          <div class="hotel-img-icon">🏨</div>
-          <div class="hotel-img-name">Hotel Montanyà</div>
-          <div class="hotel-img-sub">El Brull, Catalonia</div>
+      <div class="hotel-details reveal">
+        <div class="hotel-detail">
+          <div class="hd-num">01</div>
+          <div class="hd-text">
+            <h4>Book Aug 11 → Aug 16</h4>
+            <p>5 nights. Check in Monday, check out Sunday. Rooms from approximately <strong>€124 / night</strong> — book directly for the best available rate.</p>
+          </div>
         </div>
 
         <div class="hotel-details">
@@ -1093,6 +1529,41 @@
             </div>
           </div>
         </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+          <a href="https://www.senatorhr.com/bookingstep1/?chainSelectorValue=18001&checkin=11%2F08%2F2026&idtokenprovider=100377178&currency=EUR&idchain=500169&hsri=02080&lang=en&nights=5&parties=W3siYWR1bHRzIjoyLCJjaGlsZHJlbiI6W119XQ%3D%3D&type=chain&step=1&home=https%3A%2F%2Fwww.senatorhr.com%2F" target="_blank" class="btn btn-green">Book Your Room &rarr;</a>
+          <a href="https://senziawellness.com/senzia-spa-montanya/" target="_blank" class="btn btn-dark">Senzia Spa &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALT LODGING -->
+<div class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">More Options</div>
+      <h2 class="section-title">Family &amp; Group Stays</h2>
+      <p class="section-sub">Coming with family or a larger group? These nearby properties offer more space, privacy, and a self-catered feel.</p>
+    </div>
+    <div class="lodging-grid">
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">Airbnb · El Brull</div>
+        <h3>Country House in El Brull</h3>
+        <p>A cosy rural house 50 minutes from Barcelona, right in the heart of Montseny Natural Park. 4 bedrooms, 2 bathrooms — ideal for a family or a small group wanting their own space and a proper home base.</p>
+        <a href="https://www.airbnb.com/rooms/1156699?check_in=2026-08-11&check_out=2026-08-16" target="_blank" class="btn btn-dark">View on Airbnb &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">Airbnb · El Brull</div>
+        <h3>Rural Property near the Masia</h3>
+        <p>Another Airbnb option close to Can Brull and all the week's activities. Great for those who want the flexibility of a self-contained stay while still being a short drive from everything.</p>
+        <a href="https://www.airbnb.com/rooms/1543610803521845761?check_in=2026-08-11&check_out=2026-08-16" target="_blank" class="btn btn-dark">View on Airbnb &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">Booking.com · Nearby</div>
+        <h3>Casa Natura Barcelona</h3>
+        <p>A rural property in the Barcelona countryside offering a peaceful retreat with a natural setting. Good option for those who prefer booking through Booking.com or want a slightly different vibe from the hotel.</p>
+        <a href="https://www.booking.com/hotel/es/casa-natura-barcelona19.en-gb.html" target="_blank" class="btn btn-dark">View on Booking.com &rarr;</a>
       </div>
     </div>
   </div>
@@ -1111,19 +1582,10 @@
       <div class="travel-block">
         <h3>From Barcelona <span>1 hour</span></h3>
         <div class="travel-steps">
-          <div class="ts">
-            <div class="ts-bullet"></div>
-            <p>Fly into <strong>Barcelona–El Prat (BCN)</strong>, one of Europe's major hubs with flights from most major cities.</p>
-          </div>
-          <div class="ts">
-            <div class="ts-bullet"></div>
-            <p>Rent a car at the airport. Drive north on C-16 toward Puigcerdà, then follow signs toward <strong>El Brull &amp; Montseny</strong>.</p>
-          </div>
-          <div class="ts">
-            <div class="ts-bullet"></div>
-            <p>Scenic mountain drive. Stop for coffee if you'd like. Arrive at Hotel Montanyà by late afternoon.</p>
-          </div>
-          <div class="car-highlight">🚗 Book your rental car early — August fills up fast.</div>
+          <div class="ts"><div class="ts-bullet"></div><p>Book into <strong>Barcelona El Prat Airport (BCN)</strong> — the main international hub, 50km south of El Brull.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Aim to land on <strong>August 11</strong> with enough time to collect your rental car and reach the hotel before evening.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Departing on <strong>August 16</strong>? Allow 2+ hours from El Brull to the airport.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Book flights <strong>as early as possible</strong> — August is peak season and fares rise sharply.</p></div>
         </div>
       </div>
 
@@ -1168,6 +1630,161 @@
   </div>
 </div>
 
+<!-- CALCULATOR -->
+<div class="section-wrap calc-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Plan Your Trip</div>
+      <h2 class="section-title">What will it cost?</h2>
+      <p class="section-sub">Adjust the sliders to estimate your share. Prices are per person unless noted.</p>
+    </div>
+
+    <div class="calc-layout reveal">
+      <div class="calc-inputs">
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Hotel nights
+            <span id="lbl-nights">5 nights</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-nights" min="1" max="5" value="5" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Meals
+            <span id="lbl-meals">15 meals</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-meals" min="0" max="15" value="15" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">5</span>
+            <span class="calc-tick">10</span>
+            <span class="calc-tick">15</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Rental car days
+            <span id="lbl-cardays">6 days</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-cardays" min="0" max="6" value="6" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">6</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Splitting car with
+            <span id="lbl-carpeople">2 people</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-carpeople" min="1" max="5" value="2" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">Just me</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Golf rounds
+            <span id="lbl-golf">0 rounds</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-golf" min="0" max="4" value="0" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+          </div>
+          <div class="calc-golf-toggle" id="golf-toggle-wrap" style="display:none; margin-top:8px; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span style="font-size:0.82rem; color:var(--brown-mid);">Holes per round:</span>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-9" value="9" checked /> 9 holes (€100)
+            </label>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-18" value="18" /> 18 holes (€140)
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-row" style="border-bottom:none; padding-bottom:0;">
+          <div class="calc-label" style="margin-bottom:10px;">
+            Split trip cost
+            <span id="lbl-split">Just me</span>
+          </div>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;">
+            <div class="calc-split-toggle" id="split-toggle" role="switch" aria-checked="false" onclick="toggleSplit()" style="width:44px;height:24px;background:var(--stone);border-radius:12px;position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;">
+              <div id="split-knob" style="width:18px;height:18px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:left 0.2s;"></div>
+            </div>
+            <span style="font-size:0.85rem;color:var(--brown-mid);">Sharing the trip with 1 other person</span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-title" id="calc-result-title">Your estimated total</div>
+        <div class="calc-lines">
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Hotel Montanyà
+              <em id="sub-nights-label">5 nights × €124</em>
+            </div>
+            <div class="calc-line-amount" id="sub-nights">€744</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Meals
+              <em id="sub-meals-label">15 meals × €35</em>
+            </div>
+            <div class="calc-line-amount" id="sub-meals">€630</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Rental car (your share)
+              <em id="sub-car-label">6 days × €95 ÷ 2</em>
+            </div>
+            <div class="calc-line-amount" id="sub-car">€333</div>
+          </div>
+          <div class="calc-line" id="golf-line" style="display:none;">
+            <div class="calc-line-label">
+              Golf
+              <em id="sub-golf-label">0 rounds</em>
+            </div>
+            <div class="calc-line-amount" id="sub-golf">€0</div>
+          </div>
+        </div>
+        <div class="calc-total">
+          <div class="calc-total-label" id="calc-total-label">Estimated total</div>
+          <div class="calc-total-amount" id="calc-grand">€1,707</div>
+        </div>
+        <div class="calc-total calc-total-split" id="calc-split-row" style="display:none; margin-top:0; padding-top:10px; border-top: 1px dashed var(--parchment);">
+          <div class="calc-total-label">Per person</div>
+          <div class="calc-total-amount" id="calc-per-person" style="font-size:1.5rem;">€854</div>
+        </div>
+        <p class="calc-note">Flights, activities, and extras not included. Hotel and car prices are approximate — book early for best rates.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- RSVP -->
 <div id="rsvp" class="rsvp-wrap">
   <div class="section-wrap">
@@ -1205,9 +1822,14 @@
         </div>
 
         <div class="form-group">
-          <label for="notes">Notes & Preferences</label>
-          <textarea id="notes" name="notes" placeholder="Dietary restrictions, travel questions, activity preferences, anything I should know..."></textarea>
+          <label>Arrival Date</label>
+          <input type="date" min="2026-08-09" max="2026-08-16" />
         </div>
+        <div class="form-group">
+          <label>Departure Date</label>
+          <input type="date" min="2026-08-11" max="2026-08-19" />
+        </div>
+      </div>
 
         <button type="submit" class="rsvp-submit">Submit</button>
         <p class="rsvp-note">This form is for planning purposes. You'll be sent a follow-up link with final details.</p>
@@ -1224,28 +1846,23 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 Kevin Hawkins. A weekend in the Catalan mountains. &nbsp; <a href="mailto:kevin@example.com">Questions?</a></p>
+  <p>Kevin's 32nd Birthday &nbsp;·&nbsp; August 11–16, 2026 &nbsp;·&nbsp; El Brull, Catalonia, Spain</p>
+  <p style="margin-top:6px;">Questions? <a href="mailto:hello@kevinhawkinsdesign.com">hello@kevinhawkinsdesign.com</a> &nbsp;·&nbsp; <a href="https://wa.me/34625735141" target="_blank">WhatsApp +34 625 735 141</a></p>
 </footer>
 
 <script>
-  // Countdown Timer
-  const targetDate = new Date('2026-08-10T00:00:00').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance > 0) {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('cd-days').textContent = days;
-      document.getElementById('cd-hours').textContent = hours;
-      document.getElementById('cd-mins').textContent = minutes;
-      document.getElementById('cd-secs').textContent = seconds;
+  // ── COUNTDOWN ──
+  function tick() {
+    const target = new Date('2026-08-11T00:00:00');
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0');
+      return;
     }
+    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 3600000)  / 60000)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 60000)    / 1000)).padStart(2,'0');
   }
 
   updateCountdown();
@@ -1261,13 +1878,97 @@
     });
   }, { threshold: 0.1 });
 
-  reveals.forEach((reveal) => observer.observe(reveal));
+  // ── RSVP ──
+  // ── CALCULATOR ──
+  const HOTEL_RATE = 124;
+  const MEAL_RATE  = 35;
+  const CAR_RATE   = 95;
+  const GOLF_9     = 100;
+  const GOLF_18    = 140;
 
-  // RSVP Form Handling
-  const rsvpForm = document.getElementById('rsvp-form');
-  const rsvpSuccess = document.querySelector('.rsvp-success');
+  function fmt(n) {
+    return '€' + Math.round(n).toLocaleString('en-GB');
+  }
 
-  rsvpForm.addEventListener('submit', function (e) {
+  let splitTrip = false;
+
+  function toggleSplit() {
+    splitTrip = !splitTrip;
+    const toggle = document.getElementById('split-toggle');
+    const knob   = document.getElementById('split-knob');
+    toggle.style.background = splitTrip ? 'var(--terra)' : 'var(--stone)';
+    knob.style.left = splitTrip ? '23px' : '3px';
+    toggle.setAttribute('aria-checked', splitTrip);
+    document.getElementById('lbl-split').textContent = splitTrip ? '2 people' : 'Just me';
+    updateCalc();
+  }
+
+  function updateCalc() {
+    const nights    = +document.getElementById('sl-nights').value;
+    const meals     = +document.getElementById('sl-meals').value;
+    const carDays   = +document.getElementById('sl-cardays').value;
+    const carPeople = +document.getElementById('sl-carpeople').value;
+    const golfRnds  = +document.getElementById('sl-golf').value;
+    const holes     = document.querySelector('input[name="golf-holes"]:checked')?.value === '18' ? 18 : 9;
+    const golfRate  = holes === 18 ? GOLF_18 : GOLF_9;
+
+    const hotelTotal = nights * HOTEL_RATE;
+    const mealTotal  = meals  * MEAL_RATE;
+    const carShare   = (carDays * CAR_RATE) / carPeople;
+    const golfTotal  = golfRnds * golfRate;
+    const grand      = hotelTotal + mealTotal + carShare + golfTotal;
+    const perPerson  = grand / 2;
+
+    document.getElementById('lbl-nights').textContent    = nights + (nights === 1 ? ' night' : ' nights');
+    document.getElementById('lbl-meals').textContent     = meals  + (meals  === 1 ? ' meal'  : ' meals');
+    document.getElementById('lbl-cardays').textContent   = carDays + (carDays === 1 ? ' day' : ' days');
+    document.getElementById('lbl-carpeople').textContent = carPeople === 1 ? 'Just me' : carPeople + ' people';
+    document.getElementById('lbl-golf').textContent      = golfRnds + (golfRnds === 1 ? ' round' : ' rounds');
+
+    document.getElementById('sub-nights-label').textContent = nights + ' nights × €' + HOTEL_RATE;
+    document.getElementById('sub-meals-label').textContent  = meals  + ' meals × €'  + MEAL_RATE;
+    document.getElementById('sub-car-label').textContent    = carDays === 0
+      ? 'No car'
+      : carDays + ' days × €' + CAR_RATE + (carPeople > 1 ? ' ÷ ' + carPeople : '');
+
+    document.getElementById('sub-nights').textContent = fmt(hotelTotal);
+    document.getElementById('sub-meals').textContent  = fmt(mealTotal);
+    document.getElementById('sub-car').textContent    = fmt(carShare);
+
+    const golfToggle = document.getElementById('golf-toggle-wrap');
+    const golfLine   = document.getElementById('golf-line');
+    if (golfRnds > 0) {
+      golfToggle.style.display = 'flex';
+      golfLine.style.display   = 'flex';
+      document.getElementById('sub-golf-label').textContent = golfRnds + ' × ' + holes + ' holes × €' + golfRate;
+      document.getElementById('sub-golf').textContent       = fmt(golfTotal);
+    } else {
+      golfToggle.style.display = 'none';
+      golfLine.style.display   = 'none';
+    }
+
+    document.getElementById('calc-grand').textContent   = fmt(grand);
+    document.getElementById('calc-result-title').textContent = splitTrip ? 'Combined trip total' : 'Your estimated total';
+    document.getElementById('calc-total-label').textContent  = splitTrip ? 'Total (2 people)' : 'Estimated total';
+
+    const splitRow = document.getElementById('calc-split-row');
+    if (splitTrip) {
+      splitRow.style.display = 'flex';
+      document.getElementById('calc-per-person').textContent = fmt(perPerson);
+    } else {
+      splitRow.style.display = 'none';
+    }
+  }
+
+  ['sl-nights','sl-meals','sl-cardays','sl-carpeople','sl-golf'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateCalc);
+  });
+  document.querySelectorAll('input[name="golf-holes"]').forEach(el => {
+    el.addEventListener('change', updateCalc);
+  });
+  updateCalc();
+
+  function submitRsvp(e) {
     e.preventDefault();
 
     // Simulate form submission

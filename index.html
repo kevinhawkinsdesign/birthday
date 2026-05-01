@@ -562,6 +562,34 @@
     .vd-text h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 3px; color: var(--brown); }
     .vd-text p { font-size: 0.88rem; color: var(--stone); line-height: 1.55; }
 
+    /* ─── INSTAGRAM ─── */
+    .instagram-wrap { background: var(--parchment); }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .instagram-grid .instagram-media {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    .instagram-follow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
+    .instagram-follow a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .instagram-follow a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .instagram-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
     /* ─── HOTEL ─── */
     .hotel-wrap { background: var(--parchment); }
     .hotel-layout {
@@ -931,6 +959,11 @@
         <p class="activity-desc">On August 12, a total solar eclipse crosses Spain at sunset. Drive ~2 hrs to Tarragona for totality, or watch a stunning deep partial eclipse from the masia. One of nature's greatest spectacles — and it's happening right on our doorstep.</p>
       </div>
       <div class="activity-card reveal">
+        <span class="activity-icon">🏺</span>
+        <h3 class="activity-title">Pottery</h3>
+        <p class="activity-desc">Get your hands in the clay. A grounding, unhurried activity that fits perfectly with the pace of the week — and you leave with something you actually made.</p>
+      </div>
+      <div class="activity-card reveal">
         <span class="activity-icon">🪵</span>
         <h3 class="activity-title">Just Chilling</h3>
         <p class="activity-desc">Long dinners on the terrace. Evening fires. Slow mornings with coffee and nowhere to be. The best kind of week.</p>
@@ -1119,6 +1152,44 @@
     </div>
   </div>
 </div>
+
+<!-- INSTAGRAM -->
+<div class="section-wrap instagram-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Place</div>
+      <h2 class="section-title">Masia Can Brull</h2>
+      <p class="section-sub">A glimpse of where we'll be spending the week.</p>
+    </div>
+
+    <div class="instagram-grid reveal">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DWi1OfcCKL2/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DWi1OfcCKL2/" target="_blank">View on Instagram</a>
+      </blockquote>
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DQR0PX8ABDU/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DQR0PX8ABDU/" target="_blank">View on Instagram</a>
+      </blockquote>
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DVp_r61CO34/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;">
+        <a href="https://www.instagram.com/p/DVp_r61CO34/" target="_blank">View on Instagram</a>
+      </blockquote>
+    </div>
+
+    <div class="instagram-follow reveal">
+      <span>More photos →</span>
+      <a href="https://www.instagram.com/canbrull" target="_blank">@canbrull on Instagram</a>
+    </div>
+  </div>
+</div>
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- HOTEL -->
 <div id="hotel" class="section-wrap hotel-wrap">

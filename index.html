@@ -684,6 +684,130 @@
       font-weight: 700;
     }
 
+    /* ─── CALCULATOR ─── */
+    .calc-wrap { background: var(--parchment); }
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .calc-inputs { display: flex; flex-direction: column; gap: 28px; }
+    .calc-row { display: flex; flex-direction: column; gap: 8px; }
+    .calc-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .calc-label span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--terra);
+      font-weight: 400;
+    }
+    .calc-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 3px;
+      background: rgba(61,43,31,0.2);
+      outline: none;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .calc-tick {
+      font-size: 0.72rem;
+      color: var(--stone);
+      text-align: center;
+    }
+    .calc-result {
+      background: var(--brown);
+      padding: 36px;
+      position: sticky;
+      top: 80px;
+    }
+    .calc-result-title {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .calc-lines { display: flex; flex-direction: column; gap: 0; }
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .calc-line-label { font-size: 0.88rem; color: rgba(247,237,216,0.6); }
+    .calc-line-label em { display: block; font-size: 0.75rem; color: rgba(247,237,216,0.35); font-style: normal; margin-top: 2px; }
+    .calc-line-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+    .calc-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gold);
+    }
+    .calc-total-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .calc-total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .calc-note {
+      font-size: 0.75rem;
+      color: rgba(247,237,216,0.3);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-result { position: static; }
+    }
+
     /* ─── RSVP ─── */
     .rsvp-wrap { background: var(--brown); }
     .rsvp-inner {
@@ -1476,6 +1600,116 @@
   </div>
 </div>
 
+<!-- CALCULATOR -->
+<div class="section-wrap calc-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Plan Your Trip</div>
+      <h2 class="section-title">What will it cost?</h2>
+      <p class="section-sub">Adjust the sliders to estimate your share. Prices are per person unless noted.</p>
+    </div>
+
+    <div class="calc-layout reveal">
+      <div class="calc-inputs">
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Hotel nights
+            <span id="lbl-nights">6 nights</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-nights" min="1" max="7" value="6" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+            <span class="calc-tick">6</span>
+            <span class="calc-tick">7</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Meals
+            <span id="lbl-meals">18 meals</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-meals" min="0" max="21" value="18" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">7</span>
+            <span class="calc-tick">14</span>
+            <span class="calc-tick">21</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Rental car days
+            <span id="lbl-cardays">7 days</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-cardays" min="0" max="8" value="7" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">6</span>
+            <span class="calc-tick">8</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Splitting car with
+            <span id="lbl-carpeople">2 people</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-carpeople" min="1" max="5" value="2" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">Just me</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-title">Your estimated total</div>
+        <div class="calc-lines">
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Hotel Montanyà
+              <em id="sub-nights-label">6 nights × €124</em>
+            </div>
+            <div class="calc-line-amount" id="sub-nights">€744</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Meals
+              <em id="sub-meals-label">18 meals × €35</em>
+            </div>
+            <div class="calc-line-amount" id="sub-meals">€630</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Rental car (your share)
+              <em id="sub-car-label">7 days × €95 ÷ 2</em>
+            </div>
+            <div class="calc-line-amount" id="sub-car">€333</div>
+          </div>
+        </div>
+        <div class="calc-total">
+          <div class="calc-total-label">Estimated total</div>
+          <div class="calc-total-amount" id="calc-grand">€1,707</div>
+        </div>
+        <p class="calc-note">Flights, activities, and extras not included. Hotel and car prices are approximate — book early for best rates.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- RSVP -->
 <div id="rsvp" class="section-wrap rsvp-wrap tex-paper">
   <div class="rsvp-inner">
@@ -1599,6 +1833,48 @@
   reveals.forEach(r => obs.observe(r));
 
   // ── RSVP ──
+  // ── CALCULATOR ──
+  const HOTEL_RATE = 124;
+  const MEAL_RATE  = 35;
+  const CAR_RATE   = 95;
+
+  function fmt(n) {
+    return '€' + Math.round(n).toLocaleString('en-GB');
+  }
+
+  function updateCalc() {
+    const nights    = +document.getElementById('sl-nights').value;
+    const meals     = +document.getElementById('sl-meals').value;
+    const carDays   = +document.getElementById('sl-cardays').value;
+    const carPeople = +document.getElementById('sl-carpeople').value;
+
+    const hotelTotal = nights * HOTEL_RATE;
+    const mealTotal  = meals  * MEAL_RATE;
+    const carShare   = (carDays * CAR_RATE) / carPeople;
+    const grand      = hotelTotal + mealTotal + carShare;
+
+    document.getElementById('lbl-nights').textContent    = nights + (nights === 1 ? ' night' : ' nights');
+    document.getElementById('lbl-meals').textContent     = meals  + (meals  === 1 ? ' meal'  : ' meals');
+    document.getElementById('lbl-cardays').textContent   = carDays + (carDays === 1 ? ' day' : ' days');
+    document.getElementById('lbl-carpeople').textContent = carPeople === 1 ? 'Just me' : carPeople + ' people';
+
+    document.getElementById('sub-nights-label').textContent = nights + ' nights × €' + HOTEL_RATE;
+    document.getElementById('sub-meals-label').textContent  = meals  + ' meals × €'  + MEAL_RATE;
+    document.getElementById('sub-car-label').textContent    = carDays === 0
+      ? 'No car'
+      : carDays + ' days × €' + CAR_RATE + (carPeople > 1 ? ' ÷ ' + carPeople : '');
+
+    document.getElementById('sub-nights').textContent = fmt(hotelTotal);
+    document.getElementById('sub-meals').textContent  = fmt(mealTotal);
+    document.getElementById('sub-car').textContent    = fmt(carShare);
+    document.getElementById('calc-grand').textContent = fmt(grand);
+  }
+
+  ['sl-nights','sl-meals','sl-cardays','sl-carpeople'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateCalc);
+  });
+  updateCalc();
+
   function submitRsvp(e) {
     e.preventDefault();
     document.getElementById('rsvp-form').style.display = 'none';

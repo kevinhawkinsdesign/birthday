@@ -943,71 +943,6 @@
     }
 
     /* ─── MONTSENY ─── */
-    .montseny-wrap { background: var(--green); }
-    .montseny-wrap .section-label { color: rgba(247,237,216,0.65); }
-    .montseny-wrap .section-label::before { background: rgba(247,237,216,0.4); }
-    .montseny-wrap .section-title { color: var(--cream); }
-    .montseny-wrap .section-sub { color: rgba(247,237,216,0.65); }
-    .montseny-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: rgba(0,0,0,0.2);
-      margin-bottom: 44px;
-    }
-    .montseny-stat {
-      background: rgba(0,0,0,0.18);
-      padding: 28px 16px;
-      text-align: center;
-    }
-    .montseny-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--gold);
-      display: block;
-      line-height: 1;
-    }
-    .montseny-stat-label {
-      font-size: 0.68rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(247,237,216,0.6);
-      margin-top: 8px;
-      display: block;
-    }
-    .montseny-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .montseny-text p {
-      font-size: 0.93rem;
-      line-height: 1.8;
-      color: rgba(247,237,216,0.75);
-    }
-    .montseny-text p + p { margin-top: 14px; }
-    .montseny-wildlife {
-      background: rgba(0,0,0,0.18);
-      padding: 28px;
-    }
-    .montseny-wildlife h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--gold);
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-    .montseny-wildlife ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .montseny-wildlife li {
-      font-size: 0.87rem;
-      color: rgba(247,237,216,0.7);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      line-height: 1.5;
-    }
-    .montseny-wildlife li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
 
     /* ─── TIMELINE IMAGE ─── */
     .tl-img {
@@ -1059,8 +994,6 @@
     .lodging-card .btn { align-self: flex-start; margin-top: 4px; }
 
     @media (max-width: 900px) {
-      .montseny-stats { grid-template-columns: repeat(2, 1fr); }
-      .montseny-body { grid-template-columns: 1fr; }
       .lodging-grid { grid-template-columns: 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
     }
@@ -1403,55 +1336,6 @@
 </div>
 
 <!-- MONTSENY -->
-<div class="section-wrap montseny-wrap">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">The Natural Park</div>
-      <h2 class="section-title">Montseny Natural Park</h2>
-      <p class="section-sub">One of Europe's most biodiverse protected areas, and our backyard for the week. The masia sits within the reserve, on 200 acres of its own land.</p>
-    </div>
-
-    <div class="montseny-stats reveal">
-      <div class="montseny-stat">
-        <span class="montseny-stat-num">31,000+</span>
-        <span class="montseny-stat-label">Hectares of park</span>
-      </div>
-      <div class="montseny-stat">
-        <span class="montseny-stat-num">1978</span>
-        <span class="montseny-stat-label">UNESCO Biosphere Reserve</span>
-      </div>
-      <div class="montseny-stat">
-        <span class="montseny-stat-num">270+</span>
-        <span class="montseny-stat-label">Vertebrate species</span>
-      </div>
-      <div class="montseny-stat">
-        <span class="montseny-stat-num">600+</span>
-        <span class="montseny-stat-label">Plant species</span>
-      </div>
-    </div>
-
-    <div class="montseny-body reveal">
-      <div class="montseny-text">
-        <p>Montseny sits 50km north of Barcelona in the Catalan Pre-Coastal Range, straddling the districts of Osona, La Selva, and Vallès Oriental. Its range of altitude — from valley floors to the 1,706m summit of Turó de l'Home — creates a remarkable layering of ecosystems: holm oak and cork oak on the lower slopes, pine forests through the middle, and beech and silver fir closer to the peaks.</p>
-        <p>That natural fir forest is the southernmost in Europe, and the main reason UNESCO declared the area a Biosphere Reserve in 1978. The reserve was later extended to cover more than 50,000 hectares.</p>
-        <p>For us, it's a backdrop for morning hikes, evening fires, and the kind of stillness that's increasingly hard to find. The masia's own 200 acres give us a private slice of it all.</p>
-        <a href="https://www.spain.info/en/nature/montseny-natural-park/" target="_blank" class="btn btn-secondary" style="color:var(--cream);border-color:rgba(247,237,216,0.4); margin-top:20px; display:inline-flex;">Learn more &rarr;</a>
-      </div>
-      <div class="montseny-wildlife">
-        <h4>Wildlife in the park</h4>
-        <ul>
-          <li>Wild boar, badger and grey dormouse roam the forest floor</li>
-          <li>Woodcock, bullfinch and other Central European birds nest here</li>
-          <li>The Montseny brook newt — found nowhere else on Earth</li>
-          <li>Pyrenean newt, grass frog and Aesculapian snake in the streams</li>
-          <li>Mediterranean and Central European fauna communities overlapping — a rare convergence</li>
-          <li>And of course, the three dogs at Can Brull, who know every trail</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- INSTAGRAM -->
 <div class="section-wrap instagram-wrap">
   <div class="section-inner">

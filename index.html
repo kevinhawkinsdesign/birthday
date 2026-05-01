@@ -1704,10 +1704,23 @@
           </div>
         </div>
 
+        <div class="calc-row" style="border-bottom:none; padding-bottom:0;">
+          <div class="calc-label" style="margin-bottom:10px;">
+            Split trip cost
+            <span id="lbl-split">Just me</span>
+          </div>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;">
+            <div class="calc-split-toggle" id="split-toggle" role="switch" aria-checked="false" onclick="toggleSplit()" style="width:44px;height:24px;background:var(--stone);border-radius:12px;position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;">
+              <div id="split-knob" style="width:18px;height:18px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:left 0.2s;"></div>
+            </div>
+            <span style="font-size:0.85rem;color:var(--brown-mid);">Sharing the trip with 1 other person</span>
+          </label>
+        </div>
+
       </div>
 
       <div class="calc-result">
-        <div class="calc-result-title">Your estimated total</div>
+        <div class="calc-result-title" id="calc-result-title">Your estimated total</div>
         <div class="calc-lines">
           <div class="calc-line">
             <div class="calc-line-label">
@@ -1739,8 +1752,12 @@
           </div>
         </div>
         <div class="calc-total">
-          <div class="calc-total-label">Estimated total</div>
+          <div class="calc-total-label" id="calc-total-label">Estimated total</div>
           <div class="calc-total-amount" id="calc-grand">€1,707</div>
+        </div>
+        <div class="calc-total calc-total-split" id="calc-split-row" style="display:none; margin-top:0; padding-top:10px; border-top: 1px dashed var(--parchment);">
+          <div class="calc-total-label">Per person</div>
+          <div class="calc-total-amount" id="calc-per-person" style="font-size:1.5rem;">€854</div>
         </div>
         <p class="calc-note">Flights, activities, and extras not included. Hotel and car prices are approximate — book early for best rates.</p>
       </div>
@@ -1882,6 +1899,19 @@
     return '€' + Math.round(n).toLocaleString('en-GB');
   }
 
+  let splitTrip = false;
+
+  function toggleSplit() {
+    splitTrip = !splitTrip;
+    const toggle = document.getElementById('split-toggle');
+    const knob   = document.getElementById('split-knob');
+    toggle.style.background = splitTrip ? 'var(--terra)' : 'var(--stone)';
+    knob.style.left = splitTrip ? '23px' : '3px';
+    toggle.setAttribute('aria-checked', splitTrip);
+    document.getElementById('lbl-split').textContent = splitTrip ? '2 people' : 'Just me';
+    updateCalc();
+  }
+
   function updateCalc() {
     const nights    = +document.getElementById('sl-nights').value;
     const meals     = +document.getElementById('sl-meals').value;
@@ -1896,6 +1926,7 @@
     const carShare   = (carDays * CAR_RATE) / carPeople;
     const golfTotal  = golfRnds * golfRate;
     const grand      = hotelTotal + mealTotal + carShare + golfTotal;
+    const perPerson  = grand / 2;
 
     document.getElementById('lbl-nights').textContent    = nights + (nights === 1 ? ' night' : ' nights');
     document.getElementById('lbl-meals').textContent     = meals  + (meals  === 1 ? ' meal'  : ' meals');
@@ -1925,7 +1956,17 @@
       golfLine.style.display   = 'none';
     }
 
-    document.getElementById('calc-grand').textContent = fmt(grand);
+    document.getElementById('calc-grand').textContent   = fmt(grand);
+    document.getElementById('calc-result-title').textContent = splitTrip ? 'Combined trip total' : 'Your estimated total';
+    document.getElementById('calc-total-label').textContent  = splitTrip ? 'Total (2 people)' : 'Estimated total';
+
+    const splitRow = document.getElementById('calc-split-row');
+    if (splitTrip) {
+      splitRow.style.display = 'flex';
+      document.getElementById('calc-per-person').textContent = fmt(perPerson);
+    } else {
+      splitRow.style.display = 'none';
+    }
   }
 
   ['sl-nights','sl-meals','sl-cardays','sl-carpeople','sl-golf'].forEach(id => {

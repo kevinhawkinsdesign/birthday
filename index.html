@@ -283,6 +283,64 @@
     .ruled-divider::after { content: ''; flex: 1; height: 1px; background: var(--parchment); }
     .ruled-divider-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
 
+    /* ─── LETTER ─── */
+    .letter-wrap {
+      background: var(--cream);
+      padding: 96px 24px;
+    }
+    .letter-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .letter-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 8px;
+    }
+    .letter-rule::before,
+    .letter-rule::after {
+      content: '';
+      height: 1px;
+      width: 80px;
+      background: var(--gold);
+      opacity: 0.45;
+    }
+    .letter-salutation {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.85;
+      color: var(--brown);
+      margin-bottom: 36px;
+    }
+    .letter-body p + p { margin-top: 20px; }
+    .letter-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--stone);
+      font-style: italic;
+    }
+    .letter-sign strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--terra);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
     /* ─── DETAILS BAND ─── */
     .details-band {
       background: var(--brown);
@@ -783,6 +841,24 @@
     </div>
   </div>
 </section>
+
+<!-- LETTER -->
+<div class="letter-wrap">
+  <div class="letter-inner reveal">
+    <div class="letter-rule">✦</div>
+    <p class="letter-salutation">To my favourite people,</p>
+    <div class="letter-body">
+      <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I genuinely love, in the mountains, with good wine and open sky.</p>
+      <p>You're here because you matter to me. Because I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise. Because I want to wake up on August 11th knowing the people I care most about are just down the hall, or out on the terrace, or somewhere in the hills with me.</p>
+      <p>It'll be quiet and full — full of nature, of animals, of long meals that go on too long in the best way. There might be a solar eclipse. There will definitely be wine.</p>
+      <p>I just want to be with you. That's the whole plan.</p>
+    </div>
+    <div class="letter-sign">
+      With so much love,
+      <strong>Kevin</strong>
+    </div>
+  </div>
+</div>
 
 <!-- DETAILS BAND -->
 <div id="details" class="details-band">

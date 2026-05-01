@@ -1201,29 +1201,34 @@
 
     <div class="activities-grid">
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Hiking in the mountains" class="activity-card-img" />
         <span class="activity-icon">🥾</span>
         <h3 class="activity-title">Hiking</h3>
         <p class="activity-desc">Montseny Natural Park is right on our doorstep — trails through oak and beech forests, waterfalls, and sweeping views of the Osona valley. All levels welcome.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/589821/pexels-photo-589821.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Autumn forest hunting grounds" class="activity-card-img" />
         <span class="activity-icon">🦌</span>
         <h3 class="activity-title">Hunting</h3>
         <p class="activity-desc">The mountains around Brull are classic hunting country. Whether you're an old hand or a first-timer, we'll have days out in the field to look forward to.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/5326898/pexels-photo-5326898.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Outdoor swimming pool" class="activity-card-img" />
         <span class="activity-icon">🏊</span>
         <h3 class="activity-title">Swimming</h3>
         <p class="activity-desc">Cool off in the pool with cold drinks, good conversation, and zero agenda. The height of an August afternoon in Catalonia.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Wine glasses tasting" class="activity-card-img" />
         <span class="activity-icon">🍷</span>
         <h3 class="activity-title">Wine Tastings</h3>
         <p class="activity-desc">Two exceptional bodegas are right on our doorstep. <a href="https://cellersantmiqueldolo.com/producto/visites-descobrir-el-celler/" target="_blank" style="color:var(--terra);font-weight:700;">Celler Sant Miquel d'Oló</a> — a family winery at 800m with a Romanesque hermitage and tastings of 4 wines with local products. And <a href="https://www.lesacacies.com/enoturismo/" target="_blank" style="color:var(--terra);font-weight:700;">Les Acàcies</a> in Avinyó — claimed to be the smallest winery in the world, guided vineyard tour with cheese, sausages and pa amb tomàquet for €15/person.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/17383426/pexels-photo-17383426.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Golf course landscape" class="activity-card-img" />
         <span class="activity-icon">⛳</span>
         <h3 class="activity-title">Golf</h3>
-        <p class="activity-desc">Club de Golf Montanya is minutes from the masia — a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops.</p>
+        <p class="activity-desc">Club de Golf Montanya is minutes from the masia — a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops. 9 holes €100 · 18 holes €140.</p>
       </div>
       <div class="activity-card reveal">
         <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="activity-card-img" />
@@ -1232,11 +1237,13 @@
         <p class="activity-desc">On August 12, a total solar eclipse crosses Spain at sunset. Drive ~2 hrs to Tarragona for totality, or watch a stunning deep partial eclipse from the masia. One of nature's greatest spectacles — and it's happening right on our doorstep.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/22823/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Pottery hands in clay" class="activity-card-img" />
         <span class="activity-icon">🏺</span>
         <h3 class="activity-title">Pottery</h3>
         <p class="activity-desc">Get your hands in the clay. A grounding, unhurried activity that fits perfectly with the pace of the week — and you leave with something you actually made.</p>
       </div>
       <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Terrace relaxing outdoors" class="activity-card-img" />
         <span class="activity-icon">🪵</span>
         <h3 class="activity-title">Just Chilling</h3>
         <p class="activity-desc">Long dinners on the terrace. Evening fires. Slow mornings with coffee and nowhere to be. The best kind of week.</p>
@@ -1673,6 +1680,30 @@
           </div>
         </div>
 
+        <div class="calc-row">
+          <div class="calc-label">
+            Golf rounds
+            <span id="lbl-golf">0 rounds</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-golf" min="0" max="4" value="0" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+          </div>
+          <div class="calc-golf-toggle" id="golf-toggle-wrap" style="display:none; margin-top:8px; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span style="font-size:0.82rem; color:var(--brown-mid);">Holes per round:</span>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-9" value="9" checked /> 9 holes (€100)
+            </label>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-18" value="18" /> 18 holes (€140)
+            </label>
+          </div>
+        </div>
+
       </div>
 
       <div class="calc-result">
@@ -1698,6 +1729,13 @@
               <em id="sub-car-label">7 days × €95 ÷ 2</em>
             </div>
             <div class="calc-line-amount" id="sub-car">€333</div>
+          </div>
+          <div class="calc-line" id="golf-line" style="display:none;">
+            <div class="calc-line-label">
+              Golf
+              <em id="sub-golf-label">0 rounds</em>
+            </div>
+            <div class="calc-line-amount" id="sub-golf">€0</div>
           </div>
         </div>
         <div class="calc-total">
@@ -1837,6 +1875,8 @@
   const HOTEL_RATE = 124;
   const MEAL_RATE  = 35;
   const CAR_RATE   = 95;
+  const GOLF_9     = 100;
+  const GOLF_18    = 140;
 
   function fmt(n) {
     return '€' + Math.round(n).toLocaleString('en-GB');
@@ -1847,16 +1887,21 @@
     const meals     = +document.getElementById('sl-meals').value;
     const carDays   = +document.getElementById('sl-cardays').value;
     const carPeople = +document.getElementById('sl-carpeople').value;
+    const golfRnds  = +document.getElementById('sl-golf').value;
+    const holes     = document.querySelector('input[name="golf-holes"]:checked')?.value === '18' ? 18 : 9;
+    const golfRate  = holes === 18 ? GOLF_18 : GOLF_9;
 
     const hotelTotal = nights * HOTEL_RATE;
     const mealTotal  = meals  * MEAL_RATE;
     const carShare   = (carDays * CAR_RATE) / carPeople;
-    const grand      = hotelTotal + mealTotal + carShare;
+    const golfTotal  = golfRnds * golfRate;
+    const grand      = hotelTotal + mealTotal + carShare + golfTotal;
 
     document.getElementById('lbl-nights').textContent    = nights + (nights === 1 ? ' night' : ' nights');
     document.getElementById('lbl-meals').textContent     = meals  + (meals  === 1 ? ' meal'  : ' meals');
     document.getElementById('lbl-cardays').textContent   = carDays + (carDays === 1 ? ' day' : ' days');
     document.getElementById('lbl-carpeople').textContent = carPeople === 1 ? 'Just me' : carPeople + ' people';
+    document.getElementById('lbl-golf').textContent      = golfRnds + (golfRnds === 1 ? ' round' : ' rounds');
 
     document.getElementById('sub-nights-label').textContent = nights + ' nights × €' + HOTEL_RATE;
     document.getElementById('sub-meals-label').textContent  = meals  + ' meals × €'  + MEAL_RATE;
@@ -1867,11 +1912,27 @@
     document.getElementById('sub-nights').textContent = fmt(hotelTotal);
     document.getElementById('sub-meals').textContent  = fmt(mealTotal);
     document.getElementById('sub-car').textContent    = fmt(carShare);
+
+    const golfToggle = document.getElementById('golf-toggle-wrap');
+    const golfLine   = document.getElementById('golf-line');
+    if (golfRnds > 0) {
+      golfToggle.style.display = 'flex';
+      golfLine.style.display   = 'flex';
+      document.getElementById('sub-golf-label').textContent = golfRnds + ' × ' + holes + ' holes × €' + golfRate;
+      document.getElementById('sub-golf').textContent       = fmt(golfTotal);
+    } else {
+      golfToggle.style.display = 'none';
+      golfLine.style.display   = 'none';
+    }
+
     document.getElementById('calc-grand').textContent = fmt(grand);
   }
 
-  ['sl-nights','sl-meals','sl-cardays','sl-carpeople'].forEach(id => {
+  ['sl-nights','sl-meals','sl-cardays','sl-carpeople','sl-golf'].forEach(id => {
     document.getElementById(id).addEventListener('input', updateCalc);
+  });
+  document.querySelectorAll('input[name="golf-holes"]').forEach(el => {
+    el.addEventListener('change', updateCalc);
   });
   updateCalc();
 

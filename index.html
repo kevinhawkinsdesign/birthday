@@ -1032,6 +1032,38 @@
       .countdown { flex-wrap: wrap; border: none; gap: 2px; }
       .countdown-unit { border: 1px solid rgba(192,138,48,0.4); min-width: 70px; }
     }
+
+    /* ─── FLOATING RSVP BUTTON (mobile only) ─── */
+    .float-rsvp {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .float-rsvp {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        background: var(--terra);
+        color: var(--cream);
+        font-family: 'Playfair Display', serif;
+        font-size: 0.95rem;
+        font-style: italic;
+        letter-spacing: 0.03em;
+        padding: 14px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      .float-rsvp.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(12px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1881,6 +1913,20 @@
   });
   updateCalc();
 
+</script>
+<!-- FLOATING RSVP (mobile) -->
+<a href="https://luma.com/oqxldj1e" target="_blank" class="float-rsvp" id="float-rsvp">RSVP for Dinner &rarr;</a>
+
+<script>
+  (function () {
+    var btn = document.getElementById('float-rsvp');
+    var rsvp = document.getElementById('rsvp');
+    if (!btn || !rsvp) return;
+    var obs = new IntersectionObserver(function (entries) {
+      btn.classList.toggle('hidden', entries[0].isIntersecting);
+    }, { threshold: 0.1 });
+    obs.observe(rsvp);
+  })();
 </script>
 </body>
 </html>

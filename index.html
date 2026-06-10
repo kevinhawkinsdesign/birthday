@@ -604,6 +604,42 @@
       .instagram-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     }
 
+    /* ─── MOOD BOARD ─── */
+    .moodboard-wrap { background: var(--cream); }
+    .moodboard-frame {
+      background: #fff;
+      padding: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border: 1px solid rgba(61,43,31,0.10);
+    }
+    .moodboard-embed {
+      min-height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    /* Pinterest widget injects an iframe/span here once pinit.js loads */
+    .moodboard-embed > span { margin: 0 auto !important; }
+    .moodboard-embed iframe { max-width: 100% !important; }
+    .moodboard-fallback {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--stone);
+      max-width: 420px;
+    }
+    .moodboard-fallback a { color: var(--terra); font-weight: 700; }
+    .moodboard-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
+    .moodboard-cta a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .moodboard-cta a:hover { text-decoration: underline; }
+
     /* ─── HOTEL ─── */
     .hotel-wrap { background: var(--parchment); }
     .hotel-layout {
@@ -1076,6 +1112,7 @@
     <li><a href="#activities">Activities</a></li>
     <li><a href="#schedule">Schedule</a></li>
     <li><a href="#venue">Venue</a></li>
+    <li><a href="#moodboard">Mood Board</a></li>
     <li><a href="#hotel">Hotel</a></li>
     <li><a href="#travel">Travel</a></li>
     <li><a href="#rsvp">RSVP</a></li>
@@ -1426,6 +1463,39 @@
   </div>
 </div>
 <script async src="//www.instagram.com/embed.js"></script>
+
+<!-- MOOD BOARD -->
+<div id="moodboard" class="section-wrap moodboard-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Vibe</div>
+      <h2 class="section-title">Mood Board</h2>
+      <p class="section-sub">The look, the feel, the colours of the week — long lunches, golden light, linen and laughter. A living board of inspiration for what we're building together.</p>
+    </div>
+
+    <div class="moodboard-frame reveal">
+      <div class="moodboard-embed">
+        <!-- Pinterest board embed: renders the live board in the visitor's browser via pinit.js. -->
+        <a data-pin-do="embedBoard"
+           data-pin-board-width="1040"
+           data-pin-scale-height="320"
+           data-pin-scale-width="120"
+           href="https://pin.it/3LwIHDCge">
+          <span class="moodboard-fallback">
+            Loading the board… if it doesn't appear,
+            <a href="https://pin.it/3LwIHDCge" target="_blank" rel="noopener">view the mood board on Pinterest →</a>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="moodboard-cta reveal">
+      <span>The full collection →</span>
+      <a href="https://pin.it/3LwIHDCge" target="_blank" rel="noopener">Open the board on Pinterest</a>
+    </div>
+  </div>
+</div>
+<!-- pinit.js is loaded once near the end of <body>; it scans the whole page for [data-pin-do] boards -->
 
 <!-- HOTEL -->
 <div id="hotel" class="section-wrap hotel-wrap">

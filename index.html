@@ -71,6 +71,18 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--gold); }
+    .nav-btn {
+      padding: 7px 15px !important;
+      border-radius: 40px;
+      color: var(--cream) !important;
+      letter-spacing: 1px;
+      transition: background .2s, transform .2s, color .2s;
+    }
+    .nav-btn:hover { transform: translateY(-1px); }
+    .nav-btn-wa { background: #25D366; color: #0B3D24 !important; }
+    .nav-btn-wa:hover { background: #1FB855; color: #0B3D24 !important; }
+    .nav-btn-rsvp { background: var(--terra); color: var(--cream) !important; }
+    .nav-btn-rsvp:hover { background: #A04E25; color: var(--cream) !important; }
 
     /* ─── HERO ─── */
     #hero {
@@ -231,6 +243,8 @@
     .btn-dark:hover { background: #2A1C12; }
     .btn-green { background: var(--green); color: var(--cream); }
     .btn-green:hover { background: #2F4A2D; }
+    .btn-wa { background: #25D366; color: #0B3D24; }
+    .btn-wa:hover { background: #1FB855; }
 
     /* ─── SECTION LAYOUT ─── */
     .section-wrap {
@@ -1116,6 +1130,8 @@
     <li><a href="#hotel">Hotel</a></li>
     <li><a href="#travel">Travel</a></li>
     <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="nav-btn nav-btn-wa">WhatsApp</a></li>
+    <li><a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="nav-btn nav-btn-rsvp">Aug 15 Dinner</a></li>
   </ul>
 </nav>
 
@@ -1164,7 +1180,8 @@
     </div>
 
     <div class="hero-cta">
-      <a href="#rsvp" class="btn btn-primary">RSVP Now</a>
+      <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
+      <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
       <a href="https://www.senatorhr.com/en/montanya-hotel/" target="_blank" class="btn btn-secondary">Book the Hotel</a>
       <a href="#travel" class="btn btn-secondary">Getting There</a>
     </div>
@@ -1293,7 +1310,7 @@
     <div class="reveal">
       <div class="section-label">The Week</div>
       <h2 class="section-title">August in El Brull</h2>
-      <p class="section-sub">Two fixed points. Everything else flows with the mood, the weather, and the people.</p>
+      <p class="section-sub">The main dates are <strong>August 14–16</strong> — a dinner out on Friday, the big party at the masía on Saturday, and a slow Sunday. Come earlier if you can; the days before are open and easy.</p>
     </div>
 
     <div class="timeline">
@@ -1308,42 +1325,59 @@
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--terra);color:var(--terra);">Arrival + Birthday</span>
-          <div class="tl-title">Arrive. Settle in. Celebrate. 🎂</div>
-          <p class="tl-desc">Arrive at your own pace, check into Hotel Montanyà, then make your way to Can Brull. Birthday dinner at the masia — unhurried, around the table, with good wine and the people who matter. That's the whole plan.</p>
+          <span class="tl-badge" style="border-color:var(--terra);color:var(--terra);">City Dinner · Poblenou</span>
+          <div class="tl-title">Dinner in the city 🍷</div>
+          <p class="tl-desc">For anyone arriving early, I'm hosting dinner in Poblenou, Barcelona. A relaxed, low-key way to kick things off before we head up into the mountains.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
         <div class="tl-date">
-          <span class="tl-date-day">12</span>
-          <span class="tl-date-dow">Wednesday</span>
+          <span class="tl-date-day">12–13</span>
+          <span class="tl-date-dow">Wed – Thu</span>
         </div>
         <div class="tl-spine">
           <div class="tl-dot" style="background:var(--green);"></div>
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--green-lt);color:var(--green-lt);">Total Solar Eclipse</span>
-          <div class="tl-title">Drive south. Watch the sky go dark. 🌑</div>
-          <p class="tl-desc">The total solar eclipse crosses Spain at sunset on August 12. We'll drive roughly 2 hours south to catch totality — darkness falls around 8:30 pm. Dinner under the eclipse, then back through the mountains. One of those evenings you don't forget.</p>
+          <span class="tl-badge" style="border-color:var(--green-lt);color:var(--green-lt);">Open Days</span>
+          <div class="tl-title">Settle into the mountains — and maybe an eclipse 🌑</div>
+          <p class="tl-desc">Easy, unstructured days to make your way up to El Brull and settle in at the masía. A bonus for the early crowd: on the evening of the 12th, a total solar eclipse crosses Spain at sunset — worth a drive south to catch totality if you're around. Otherwise, it's hills, wine, and the pool.</p>
           <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="tl-img" />
         </div>
       </div>
 
       <div class="timeline-item reveal">
         <div class="tl-date">
-          <span class="tl-date-day">13–15</span>
-          <span class="tl-date-dow">Thu – Sat</span>
+          <span class="tl-date-day">14</span>
+          <span class="tl-date-dow">Friday</span>
         </div>
         <div class="tl-spine">
           <div class="tl-dot" style="background:var(--gold);"></div>
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge">No fixed agenda</span>
-          <div class="tl-title">The middle days — yours to shape</div>
-          <p class="tl-desc">These days belong to the group. The masia is always the home base. Some things that might happen: morning hunts in the Montseny hills, tours at one of the best local wineries (€25 each), pottery sessions, a long swim, golf at Club de Golf Montanya, a treatment at Senzia Spa, or an afternoon that turns into an evening around the fire. Nothing is mandatory. Everything is available.</p>
+          <span class="tl-badge" style="border-color:var(--gold);color:var(--gold);">Dinner Out</span>
+          <div class="tl-title">Dinner at a restaurant 🍽️</div>
+          <p class="tl-desc">The core of the weekend begins. I'm organising a group dinner out at a restaurant on Friday evening — details to follow. If you're coming for the main stretch (Aug 14–16), this is where it starts.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="tl-date">
+          <span class="tl-date-day">15</span>
+          <span class="tl-date-dow">Saturday</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--terra);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge" style="background:var(--terra);border-color:var(--terra);color:var(--cream);">★ The Main Event</span>
+          <div class="tl-title">The big dinner party at the masía 🎉</div>
+          <p class="tl-desc">The heart of the whole trip. A dinner party at Masia Can Brull — one long table, good wine, and everyone together under the open sky. If there's one night to be here for, it's this one.</p>
+          <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:16px;">RSVP for the Aug 15 Dinner &rarr;</a>
         </div>
       </div>
 
@@ -1357,9 +1391,9 @@
           <div class="tl-line"></div>
         </div>
         <div class="tl-content">
-          <span class="tl-badge">The Weekend</span>
-          <div class="tl-title">City or countryside — pick your exit</div>
-          <p class="tl-desc">The final day opens things up. Head into Barcelona for the afternoon — beach, architecture, food, whatever calls you. Or stay in the mountains and visit one of the wineries just down the road. Final farewells, then the drive back to Barcelona airport.</p>
+          <span class="tl-badge" style="border-color:var(--stone);color:var(--stone);">Wind Down</span>
+          <div class="tl-title">Hangovers, chilling, and goodbyes</div>
+          <p class="tl-desc">A slow one. Recover from the night before, linger over a long breakfast, take it easy around the masía — then final farewells and the drive back to Barcelona airport.</p>
         </div>
       </div>
 
@@ -1854,6 +1888,11 @@
         <a href="https://luma.com/oqxldj1e" target="_blank" class="btn btn-primary invite-button">RSVP for Dinner</a>
         <p class="rsvp-note">Questions? Email <a href="mailto:hello@kevinhawkinsdesign.com" style="color:var(--gold);">hello@kevinhawkinsdesign.com</a> or WhatsApp <a href="https://wa.me/34625735141" target="_blank" style="color:var(--gold);">+34 625 735 141</a></p>
       </div>
+    </div>
+
+    <div class="reveal" style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
+      <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
+      <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
     </div>
   </div>
 </div>

@@ -219,6 +219,22 @@
 
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
+    .hero-rsvp { margin-top: 34px; }
+    .hero-rsvp-line {
+      font-size: 0.95rem;
+      color: rgba(247,237,216,0.82);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .hero-rsvp-line strong { color: var(--gold); font-weight: 700; }
+    .hero-rsvp-note {
+      font-size: 0.82rem;
+      color: rgba(247,237,216,0.55);
+      margin-top: 18px;
+    }
+    .hero-rsvp-note a { color: var(--gold); font-weight: 700; text-decoration: none; }
+    .hero-rsvp-note a:hover { text-decoration: underline; }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -248,7 +264,7 @@
 
     /* ─── SECTION LAYOUT ─── */
     .section-wrap {
-      padding: 96px 24px;
+      padding: 72px 24px;
     }
     .section-inner {
       max-width: 1100px;
@@ -303,7 +319,7 @@
     /* ─── LETTER ─── */
     .letter-wrap {
       background: var(--cream);
-      padding: 96px 24px;
+      padding: 72px 24px;
     }
     .letter-inner {
       max-width: 680px;
@@ -875,93 +891,6 @@
     .outfit-wrap .section-sub { color: var(--brown-mid); }
     .outfit-wrap .section-label { color: var(--stone); }
 
-    .rsvp-wrap { background: var(--brown); }
-    .rsvp-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .rsvp-wrap .section-label { color: var(--gold); justify-content: center; }
-    .rsvp-wrap .section-label::before { display: none; }
-    .rsvp-wrap .section-title { color: var(--cream); text-align: center; }
-    .rsvp-wrap .section-sub { color: rgba(247,237,216,0.6); margin: 0 auto 44px; text-align: center; }
-
-    .rsvp-note { font-size: 0.78rem; color: rgba(247,237,216,0.35); text-align: center; margin-top: 10px; }
-
-    /* ─── APPLE INVITE ─── */
-    .apple-invite { padding: 44px 24px; }
-    .invite-card {
-      max-width: 500px;
-      margin: 0 auto;
-      background: rgba(247,237,216,0.08);
-      border: 1px solid rgba(192,138,48,0.2);
-      border-radius: 16px;
-      padding: 40px 32px;
-      text-align: center;
-      transition: all .3s ease;
-    }
-    .invite-card:hover {
-      background: rgba(247,237,216,0.12);
-      border-color: rgba(192,138,48,0.35);
-    }
-    .invite-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .invite-icon {
-      font-size: 3rem;
-      line-height: 1;
-    }
-    .invite-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--gold);
-      font-style: italic;
-      margin: 0;
-    }
-    .invite-details { margin-bottom: 32px; }
-    .invite-event {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin: 0 0 8px;
-      letter-spacing: 0.5px;
-    }
-    .invite-date {
-      font-size: 0.95rem;
-      color: var(--gold);
-      margin: 0 0 6px;
-      font-weight: 600;
-    }
-    .invite-location {
-      font-size: 0.9rem;
-      color: rgba(247,237,216,0.6);
-      margin: 0;
-    }
-    .invite-button {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--gold);
-      color: #1A120A;
-      border: none;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all .2s ease;
-      text-decoration: none;
-    }
-    .invite-button:hover {
-      background: #D4AF37;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(192,138,48,0.3);
-    }
-
     /* ─── FOOTER ─── */
     footer {
       background: #1A120A;
@@ -1129,7 +1058,6 @@
     <li><a href="#moodboard">Mood Board</a></li>
     <li><a href="#hotel">Hotel</a></li>
     <li><a href="#travel">Travel</a></li>
-    <li><a href="#rsvp">RSVP</a></li>
     <li><a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="nav-btn nav-btn-wa">WhatsApp</a></li>
     <li><a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="nav-btn nav-btn-rsvp">Aug 15 Dinner</a></li>
   </ul>
@@ -1179,11 +1107,14 @@
       </div>
     </div>
 
-    <div class="hero-cta">
-      <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
-      <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
-      <a href="https://www.senatorhr.com/en/montanya-hotel/" target="_blank" class="btn btn-secondary">Book the Hotel</a>
-      <a href="#travel" class="btn btn-secondary">Getting There</a>
+    <div id="rsvp" class="hero-rsvp">
+      <p class="hero-rsvp-line">The big dinner party is <strong>Saturday, Aug 15</strong> · Come for the main stretch, <strong>Aug 14–16</strong> · Please RSVP by <strong>June 30</strong></p>
+      <div class="hero-cta">
+        <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
+        <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
+        <a href="https://www.icloud.com/invites/0cbLpYA5aIUcL5JEk5Wa467ug" target="_blank" rel="noopener" class="btn btn-dark">Full Trip Invite</a>
+      </div>
+      <p class="hero-rsvp-note">Questions? <a href="mailto:hello@kevinhawkinsdesign.com">Email</a> or <a href="https://wa.me/34625735141" target="_blank" rel="noopener">WhatsApp Kevin</a></p>
     </div>
   </div>
 </section>
@@ -1194,10 +1125,9 @@
     <div class="letter-rule">✦</div>
     <p class="letter-salutation">To my favourite people,</p>
     <div class="letter-body">
-      <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I genuinely love, in the mountains, with good wine and open sky.</p>
-      <p>You're here because you matter to me. Because I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise. Because I want to wake up on August 11th knowing the people I care most about are just down the hall, or out on the terrace, or somewhere in the hills with me.</p>
-      <p>It'll be quiet and full — full of nature, of animals, of long meals that go on too long in the best way. There might be a solar eclipse. There will definitely be wine.</p>
-      <p>I just want to be with you. That's the whole plan.</p>
+      <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I love, in the mountains, with good wine and open sky.</p>
+      <p>You're here because you matter to me. I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise — with the people I care about just down the hall, out on the terrace, or somewhere in the hills.</p>
+      <p>It'll be quiet and full — of nature, long meals, maybe a solar eclipse, and definitely wine. I just want to be with you. That's the whole plan.</p>
     </div>
     <div class="letter-sign" style="text-align:center;">
       With so much love,
@@ -1848,54 +1778,6 @@
   </div>
 </div>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-
-<!-- RSVP -->
-<div id="rsvp" class="section-wrap rsvp-wrap tex-paper">
-  <div class="rsvp-inner">
-    <div class="reveal">
-      <div class="section-label">Let Us Know</div>
-      <h2 class="section-title">Will you be there?</h2>
-      <p class="section-sub">RSVP by June 30, 2026 so we can plan accordingly. The earlier the better — for us and for your flights.</p>
-    </div>
-
-    <div class="apple-invite reveal">
-      <div class="invite-card">
-        <div class="invite-header">
-          <div class="invite-icon">📅</div>
-          <h3>You're invited</h3>
-        </div>
-        <div class="invite-details">
-          <p class="invite-event">Kevin's 32nd Birthday</p>
-          <p class="invite-date">August 11 – 16, 2026</p>
-          <p class="invite-location">El Brull, Catalonia, Spain</p>
-        </div>
-        <a href="https://www.icloud.com/invites/0cbLpYA5aIUcL5JEk5Wa467ug" target="_blank" class="btn btn-primary invite-button">Open Invite</a>
-        <p class="rsvp-note">Questions? Email <a href="mailto:hello@kevinhawkinsdesign.com" style="color:var(--gold);">hello@kevinhawkinsdesign.com</a> or WhatsApp <a href="https://wa.me/34625735141" target="_blank" style="color:var(--gold);">+34 625 735 141</a></p>
-      </div>
-    </div>
-
-    <div class="apple-invite reveal">
-      <div class="invite-card">
-        <div class="invite-header">
-          <div class="invite-icon">🍽️</div>
-          <h3>Dinner Only</h3>
-        </div>
-        <div class="invite-details">
-          <p class="invite-event">Can't make the full trip?</p>
-          <p class="invite-date">Join us for dinner on Saturday, August 15</p>
-          <p class="invite-location">El Brull, Catalonia, Spain</p>
-        </div>
-        <a href="https://luma.com/oqxldj1e" target="_blank" class="btn btn-primary invite-button">RSVP for Dinner</a>
-        <p class="rsvp-note">Questions? Email <a href="mailto:hello@kevinhawkinsdesign.com" style="color:var(--gold);">hello@kevinhawkinsdesign.com</a> or WhatsApp <a href="https://wa.me/34625735141" target="_blank" style="color:var(--gold);">+34 625 735 141</a></p>
-      </div>
-    </div>
-
-    <div class="reveal" style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
-      <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
-      <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>

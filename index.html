@@ -84,6 +84,35 @@
     .nav-btn-rsvp { background: var(--terra); color: var(--cream) !important; }
     .nav-btn-rsvp:hover { background: #A04E25; color: var(--cream) !important; }
 
+    /* ─── NAV DROPDOWN ─── */
+    .nav-dropdown { position: relative; }
+    .nav-more { cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+    .nav-more::after { content: '▾'; font-size: 0.9em; transition: transform .2s; }
+    .nav-dropdown.open .nav-more::after { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      list-style: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 0;
+      min-width: 168px;
+      background: var(--brown);
+      border: 1px solid rgba(192,138,48,0.25);
+      border-top: 3px solid var(--gold);
+      padding: 6px 0;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+      opacity: 0; visibility: hidden; transform: translateY(6px);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s;
+      z-index: 101;
+    }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -17px; right: 0; width: 100%; height: 17px; }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 0.72rem; }
+    .nav-dropdown-menu a:hover { background: rgba(247,237,216,0.06); }
+
     /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
@@ -1055,6 +1084,14 @@
     <li><a href="#venue">Venue</a></li>
     <li><a href="#hotel">Hotel</a></li>
     <li><a href="#travel">Travel</a></li>
+    <li class="nav-dropdown">
+      <a class="nav-more" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">More</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="#details">Details</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#moodboard">Mood Board</a></li>
+      </ul>
+    </li>
     <li><a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="nav-btn nav-btn-wa">WhatsApp</a></li>
     <li><a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="nav-btn nav-btn-rsvp">Aug 15 Dinner</a></li>
   </ul>
@@ -1914,6 +1951,29 @@
       btn.classList.toggle('hidden', entries[0].isIntersecting);
     }, { threshold: 0.1 });
     obs.observe(rsvp);
+  })();
+</script>
+
+<script>
+  // ── NAV "MORE" DROPDOWN ──
+  (function () {
+    var dd = document.querySelector('.nav-dropdown');
+    if (!dd) return;
+    var trigger = dd.querySelector('.nav-more');
+    function close() { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = dd.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
+      if (e.key === 'Escape') close();
+    });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) close(); });
+    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function (a) {
+      a.addEventListener('click', close);
+    });
   })();
 </script>
 </body>

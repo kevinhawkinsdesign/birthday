@@ -573,6 +573,25 @@
       margin-bottom: 8px;
     }
     .tl-desc { font-size: 0.9rem; color: rgba(247,237,216,0.6); line-height: 1.65; }
+    .tl-content.tl-featured {
+      background: rgba(184,92,44,0.10);
+      border: 1px solid rgba(184,92,44,0.35);
+      border-radius: 6px;
+      padding: 26px 24px 30px;
+      margin: 2px 0;
+    }
+    .tl-times {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(247,237,216,0.12);
+      font-size: 0.85rem;
+      color: rgba(247,237,216,0.72);
+    }
+    .tl-times div { display: flex; align-items: baseline; gap: 10px; }
+    .tl-times .tl-time { color: var(--gold); font-weight: 700; min-width: 92px; }
 
     /* ─── VENUE ─── */
     .venue-layout {
@@ -1337,11 +1356,15 @@
           <div class="tl-dot" style="background:var(--terra);"></div>
           <div class="tl-line"></div>
         </div>
-        <div class="tl-content">
+        <div class="tl-content tl-featured">
           <span class="tl-badge" style="background:var(--terra);border-color:var(--terra);color:var(--cream);">★ The Main Event</span>
-          <div class="tl-title">The big dinner party at the masía 🎉</div>
-          <p class="tl-desc">The heart of the whole trip. A dinner party at Masia Can Brull — one long table, good wine, and everyone together under the open sky. If there's one night to be here for, it's this one.</p>
-          <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:16px;">RSVP for the Aug 15 Dinner &rarr;</a>
+          <div class="tl-title">The main day — countryside by day, party by night 🎉</div>
+          <p class="tl-desc">The day everything's been building toward, from morning to the small hours. Spend the daytime together — a full-day hangout and exploring the Montseny countryside at whatever pace suits. Then the dinner party at Masia Can Brull takes over: one long table, good wine, and everyone together under the open sky. If there's one day to be here for, it's this one.</p>
+          <div class="tl-times">
+            <div><span class="tl-time">All day</span><span>Hangout &amp; exploring the countryside</span></div>
+            <div><span class="tl-time">19h – 3h</span><span>Dinner party at the masía</span></div>
+          </div>
+          <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">RSVP for the Aug 15 Dinner &rarr;</a>
         </div>
       </div>
 

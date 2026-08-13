@@ -618,6 +618,14 @@
     .tl-times div { display: flex; align-items: baseline; gap: 10px; }
     .tl-times .tl-time { color: var(--gold); font-weight: 700; min-width: 92px; }
 
+    /* Past days — crossed out and dimmed */
+    .timeline-item.past { opacity: 0.45; }
+    .timeline-item.past .tl-title,
+    .timeline-item.past .tl-date-day,
+    .timeline-item.past .tl-date-dow { text-decoration: line-through; }
+    .timeline-item.past .tl-dot { background: var(--stone) !important; }
+    .timeline-item.past .tl-img { display: none; }
+
     /* ─── VENUE ─── */
     .venue-layout {
       display: grid;
@@ -1342,12 +1350,12 @@
     <div class="reveal">
       <div class="section-label">The Week</div>
       <h2 class="section-title">August in Osona</h2>
-      <p class="section-sub">The main dates are <strong>August 14–16</strong> — a dinner out on Friday, the big party at the mas on Saturday, and a slow Sunday. Come earlier if you can; the days before are open and easy.</p>
+      <p class="section-sub">The main dates are <strong>August 14–16</strong> — dinner at El Jardí on Friday, the big party at the mas on Saturday, and a slow Sunday to wind down.</p>
     </div>
 
     <div class="timeline">
 
-      <div class="timeline-item reveal">
+      <div class="timeline-item reveal past">
         <div class="tl-date">
           <span class="tl-date-day">11</span>
           <span class="tl-date-dow">Tuesday</span>
@@ -1363,7 +1371,7 @@
         </div>
       </div>
 
-      <div class="timeline-item reveal">
+      <div class="timeline-item reveal past">
         <div class="tl-date">
           <span class="tl-date-day">12–13</span>
           <span class="tl-date-dow">Wed – Thu</span>
@@ -1389,10 +1397,14 @@
           <div class="tl-dot" style="background:var(--gold);"></div>
           <div class="tl-line"></div>
         </div>
-        <div class="tl-content">
-          <span class="tl-badge" style="border-color:var(--gold);color:var(--gold);">Dinner Out</span>
-          <div class="tl-title">Dinner at a restaurant 🍽️</div>
-          <p class="tl-desc">The core of the weekend begins. I'm organising a group dinner out at a restaurant on Friday evening — details to follow. If you're coming for the main stretch (Aug 14–16), this is where it starts.</p>
+        <div class="tl-content tl-featured">
+          <span class="tl-badge" style="background:var(--terra);border-color:var(--terra);color:var(--cream);">★ Up Next · Friday Dinner</span>
+          <div class="tl-title">Dinner at Restaurante El Jardí 🍽️</div>
+          <p class="tl-desc">The main focus for Friday — a group dinner at Restaurante El Jardí in Vic. Join us at <strong>8pm (20:00)</strong> to kick off the weekend together. Come hungry.</p>
+          <div class="tl-times">
+            <div><span class="tl-time">20:00</span><span>Dinner at Restaurante El Jardí, Vic</span></div>
+          </div>
+          <a href="https://maps.app.goo.gl/FaDHi1Cn3BWn6seQA" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">Open El Jardí in Maps &rarr;</a>
         </div>
       </div>
 

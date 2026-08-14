@@ -380,9 +380,24 @@
       margin: 0 auto;
       text-align: center;
       background: #fff;
-      padding: 64px 56px;
+      padding: 44px 56px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
+    .letter-summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--brown);
+    }
+    .letter-summary::-webkit-details-marker { display: none; }
+    .letter-summary::after { content: '▾'; font-style: normal; color: var(--gold); transition: transform .2s; }
+    .letter-accordion[open] .letter-summary::after { transform: rotate(180deg); }
+    .letter-open { margin-top: 30px; }
     .letter-rule {
       display: flex;
       align-items: center;
@@ -1171,7 +1186,6 @@
     <li class="nav-dropdown">
       <a class="nav-more" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">More</a>
       <ul class="nav-dropdown-menu">
-        <li><a href="#details">Details</a></li>
         <li><a href="#activities">Activities</a></li>
         <li><a href="#moodboard">Mood Board</a></li>
       </ul>
@@ -1239,49 +1253,21 @@
 
 <!-- LETTER -->
 <div class="letter-wrap">
-  <div class="letter-inner reveal">
-    <div class="letter-rule">✦</div>
-    <p class="letter-salutation">To my favourite people,</p>
-    <div class="letter-body">
-      <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I love, in the mountains, with good wine and open sky.</p>
-      <p>You're here because you matter to me. I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise — with the people I care about just down the hall, out on the terrace, or somewhere in the hills.</p>
-      <p>It'll be quiet and full — of nature, long meals, maybe a solar eclipse, and definitely wine. I just want to be with you. That's the whole plan.</p>
+  <details class="letter-inner reveal letter-accordion">
+    <summary class="letter-summary">✦&nbsp;&nbsp;A note from Kevin&nbsp;&nbsp;✦</summary>
+    <div class="letter-open">
+      <p class="letter-salutation">To my favourite people,</p>
+      <div class="letter-body">
+        <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I love, in the mountains, with good wine and open sky.</p>
+        <p>You're here because you matter to me. I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise — with the people I care about just down the hall, out on the terrace, or somewhere in the hills.</p>
+        <p>It'll be quiet and full — of nature, long meals, maybe a solar eclipse, and definitely wine. I just want to be with you. That's the whole plan.</p>
+      </div>
+      <div class="letter-sign" style="text-align:center;">
+        With so much love,
+        <img src="https://raw.githubusercontent.com/kevinhawkinsdesign/birthday/main/signature.png" alt="Kevin's signature" class="signature-img" />
+      </div>
     </div>
-    <div class="letter-sign" style="text-align:center;">
-      With so much love,
-      <img src="https://raw.githubusercontent.com/kevinhawkinsdesign/birthday/main/signature.png" alt="Kevin's signature" class="signature-img" />
-    </div>
-  </div>
-</div>
-
-<!-- DETAILS BAND -->
-<div id="details" class="details-band">
-  <div class="details-grid">
-    <div class="detail-item reveal">
-      <span class="detail-icon">🎂</span>
-      <div class="detail-label">The Birthday</div>
-      <div class="detail-value">Tuesday, Aug 11</div>
-      <div class="detail-sub">Kevin turns 32 — and the celebration kicks off the moment everyone arrives.</div>
-    </div>
-    <div class="detail-item reveal">
-      <span class="detail-icon">📅</span>
-      <div class="detail-label">Dates</div>
-      <div class="detail-value">Aug 11 – 16, 2026</div>
-      <div class="detail-sub">Full trip runs Tuesday to Sunday. The main dates to be here for are <strong>Aug 14 – 16</strong>.</div>
-    </div>
-    <div class="detail-item reveal">
-      <span class="detail-icon">📍</span>
-      <div class="detail-label">Location</div>
-      <div class="detail-value">Sant Bartomeu del Grau</div>
-      <div class="detail-sub">Osona, Catalonia. Just over an hour north of Barcelona.</div>
-    </div>
-    <div class="detail-item reveal">
-      <span class="detail-icon">✉️</span>
-      <div class="detail-label">RSVP By</div>
-      <div class="detail-value">July 11, 2026</div>
-      <div class="detail-sub">Book flights and hotel early — summer in Spain fills up fast.</div>
-    </div>
-  </div>
+  </details>
 </div>
 
 <!-- ACTIVITIES -->

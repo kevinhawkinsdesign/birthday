@@ -1043,6 +1043,11 @@
       display: block;
     }
 
+    /* ─── RIDES ─── */
+    .rides-wrap { background: var(--parchment); }
+    .rides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 900px) { .rides-grid { grid-template-columns: 1fr; } }
+
     /* ─── ALT LODGING ─── */
     .lodging-grid {
       display: grid;
@@ -1159,6 +1164,7 @@
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#rides">Rides</a></li>
     <li><a href="#venue">Venue</a></li>
     <li><a href="#hotel">Hotel</a></li>
     <li><a href="#travel">Travel</a></li>
@@ -1453,6 +1459,31 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- RIDES -->
+<div id="rides" class="section-wrap rides-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Getting There &amp; Back</div>
+      <h2 class="section-title">Rides for Saturday</h2>
+      <p class="section-sub">Let's sort how everyone gets up to Mas el Vilaró and back to the city. Add your name to the right sheet — the sooner the better, so we can match people up.</p>
+    </div>
+    <div class="rides-grid">
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">🚗 Getting up</div>
+        <h3>Carpool up to the mas</h3>
+        <p>Driving up on Saturday? Add the seats you can offer. Need a ride? Note where you're coming from. We'll match drivers and riders in the sheet — aim to reach the mas from 15:30.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1GExzw_aJcVlqth2HXEfwxzThAqw98ttixdcuBVi8wsk/edit" target="_blank" rel="noopener" class="btn btn-primary">Carpool sign-up &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">🚌 Getting back</div>
+        <h3>Shuttle back to the city</h3>
+        <p>A shuttle bus runs back to the city after the party. Reserve your seat(s) and note whether you'd like to be dropped in Vic or Barcelona.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1yLz8wLei-TY2JsdiJlR45ob1g7nu1TPa5NWmLPMqvkI/edit" target="_blank" rel="noopener" class="btn btn-primary">Reserve a shuttle seat &rarr;</a>
+      </div>
     </div>
   </div>
 </div>

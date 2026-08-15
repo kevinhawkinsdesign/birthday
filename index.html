@@ -635,13 +635,19 @@
     .tl-desc a, .tl-times a { color: var(--gold); font-weight: 700; text-decoration: none; }
     .tl-desc a:hover, .tl-times a:hover { text-decoration: underline; }
 
-    /* Past days — crossed out and dimmed */
-    .timeline-item.past { opacity: 0.45; }
+    /* Past days — collapsed to a compact struck-through line */
+    .timeline-item.past { opacity: 0.4; }
     .timeline-item.past .tl-title,
     .timeline-item.past .tl-date-day,
     .timeline-item.past .tl-date-dow { text-decoration: line-through; }
+    .timeline-item.past .tl-title { font-size: 1.05rem; margin-bottom: 0; }
     .timeline-item.past .tl-dot { background: var(--stone) !important; }
-    .timeline-item.past .tl-img { display: none; }
+    .timeline-item.past .tl-content { padding: 16px 0; background: none; border: none; }
+    .timeline-item.past .tl-img,
+    .timeline-item.past .tl-badge,
+    .timeline-item.past .tl-desc,
+    .timeline-item.past .tl-times,
+    .timeline-item.past .tl-content .btn { display: none; }
 
     /* ─── VENUE ─── */
     .venue-layout {
@@ -1240,7 +1246,7 @@
     </div>
 
     <div id="rsvp" class="hero-rsvp">
-      <p class="hero-rsvp-line">Up next: dinner at <strong>Siblings Restaurant</strong> — <strong>Friday, 8pm</strong>. Then Saturday: a <strong>10:30</strong> tasting at Celler Abadal and the big party at the mas.</p>
+      <p class="hero-rsvp-line">Today's the big day 🎉 — a <strong>10:30</strong> tasting at Celler Abadal, then the party at the mas from <strong>15:30</strong> into the night.</p>
       <div class="hero-cta">
         <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
         <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
@@ -1314,7 +1320,7 @@
         </div>
       </div>
 
-      <div class="timeline-item reveal">
+      <div class="timeline-item reveal past">
         <div class="tl-date">
           <span class="tl-date-day">14</span>
           <span class="tl-date-dow">Friday</span>
@@ -1323,8 +1329,8 @@
           <div class="tl-dot" style="background:var(--gold);"></div>
           <div class="tl-line"></div>
         </div>
-        <div class="tl-content tl-featured">
-          <span class="tl-badge" style="background:var(--terra);border-color:var(--terra);color:var(--cream);">★ Up Next · Friday Dinner</span>
+        <div class="tl-content">
+          <span class="tl-badge" style="border-color:var(--gold);color:var(--gold);">Friday · Dinner</span>
           <div class="tl-title">Dinner at Siblings Restaurant 🍽️</div>
           <p class="tl-desc">The main focus for Friday — a group dinner at Siblings Restaurant in Vic. Join us at <strong>8pm (20:00)</strong> to kick off the weekend together. Come hungry.</p>
           <div class="tl-times">

@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevin's 32nd — Sant Bartomeu del Grau, Spain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #F7EDD8;
+      --parchment: #EFE0C0;
+      --brown:     #3D2B1F;
+      --brown-mid: #6B4C34;
+      --terra:     #B85C2C;
+      --green:     #3C5A3A;
+      --green-lt:  #5C7A4E;
+      --gold:      #C08A30;
+      --stone:     #9E8E78;
+      --text:      #2C1F14;
+      --radius:    4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── TEXTURE OVERLAYS ─── */
+    .tex-paper {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: var(--brown);
+      z-index: 100;
+      padding: 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 62px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--cream);
+      letter-spacing: 2px;
+    }
+    .nav-logo em { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(247,237,216,0.7);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-btn {
+      padding: 7px 15px !important;
+      border-radius: 40px;
+      color: var(--cream) !important;
+      letter-spacing: 1px;
+      transition: background .2s, transform .2s, color .2s;
+    }
+    .nav-btn:hover { transform: translateY(-1px); }
+    .nav-btn-wa { background: #25D366; color: #0B3D24 !important; }
+    .nav-btn-wa:hover { background: #1FB855; color: #0B3D24 !important; }
+    .nav-btn-rsvp { background: var(--terra); color: var(--cream) !important; }
+    .nav-btn-rsvp:hover { background: #A04E25; color: var(--cream) !important; }
+
+    /* ─── NAV DROPDOWN ─── */
+    .nav-dropdown { position: relative; }
+    .nav-more { cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+    .nav-more::after { content: '▾'; font-size: 0.9em; transition: transform .2s; }
+    .nav-dropdown.open .nav-more::after { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      list-style: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 0;
+      min-width: 168px;
+      background: var(--brown);
+      border: 1px solid rgba(192,138,48,0.25);
+      border-top: 3px solid var(--gold);
+      padding: 6px 0;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+      opacity: 0; visibility: hidden; transform: translateY(6px);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s;
+      z-index: 101;
+    }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -17px; right: 0; width: 100%; height: 17px; }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 0.72rem; }
+    .nav-dropdown-menu a:hover { background: rgba(247,237,216,0.06); }
+
+    /* ─── NAV HAMBURGER (mobile) ─── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      padding: 9px 8px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--brown);
+      background-image: url('https://www.spain.info/export/sites/segtur/.content/imagenes/cabeceras-grandes/naturaleza/parque_natural_montseny_s42629806.jpg_604889389.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* SVG mountain background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-bg-mountains {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+    }
+    .hero-bg-sky {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,6,2,0.82) 0%, rgba(30,18,8,0.75) 50%, rgba(61,43,31,0.85) 100%);
+    }
+    .hero-bg-stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 10% 12%, rgba(255,235,180,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 8%, rgba(255,235,180,0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 40% 5%, rgba(255,235,180,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 10%, rgba(255,235,180,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 7%, rgba(255,235,180,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 14%, rgba(255,235,180,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 22%, rgba(255,235,180,0.35) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 52% 18%, rgba(255,235,180,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 68% 25%, rgba(255,235,180,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 33% 30%, rgba(255,235,180,0.3) 0%, transparent 100%);
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 0.95;
+      margin-bottom: 12px;
+    }
+    .hero-title em { display: block; color: var(--gold); font-style: italic; font-size: 0.55em; line-height: 1.4; }
+
+    .hero-rule {
+      width: 80px;
+      height: 2px;
+      background: var(--gold);
+      margin: 28px auto;
+    }
+
+    .hero-dates {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 3vw, 1.35rem);
+      font-style: italic;
+      color: rgba(247,237,216,0.85);
+      margin-bottom: 6px;
+    }
+    .hero-location {
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 48px;
+    }
+
+    /* ─── COUNTDOWN ─── */
+    .countdown {
+      display: inline-flex;
+      gap: 0;
+      margin-bottom: 48px;
+      border: 1px solid rgba(192,138,48,0.4);
+    }
+    .countdown-unit {
+      padding: 20px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(192,138,48,0.4);
+      min-width: 80px;
+    }
+    .countdown-unit:last-child { border-right: none; }
+    .countdown-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .countdown-label {
+      font-size: 0.62rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(247,237,216,0.5);
+      margin-top: 6px;
+      display: block;
+    }
+
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+    .hero-rsvp { margin-top: 34px; }
+    .hero-rsvp-line {
+      font-size: 0.95rem;
+      color: rgba(247,237,216,0.82);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .hero-rsvp-line strong { color: var(--gold); font-weight: 700; }
+    .hero-rsvp-note {
+      font-size: 0.82rem;
+      color: rgba(247,237,216,0.55);
+      margin-top: 18px;
+    }
+    .hero-rsvp-note a { color: var(--gold); font-weight: 700; text-decoration: none; }
+    .hero-rsvp-note a:hover { text-decoration: underline; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .2s, color .2s, transform .15s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary   { background: var(--terra); color: var(--cream); }
+    .btn-primary:hover { background: #A04E25; }
+    .btn-secondary { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+    .btn-secondary:hover { background: rgba(192,138,48,0.12); }
+    .btn-dark { background: var(--brown); color: var(--cream); }
+    .btn-dark:hover { background: #2A1C12; }
+    .btn-green { background: var(--green); color: var(--cream); }
+    .btn-green:hover { background: #2F4A2D; }
+    .btn-wa { background: #25D366; color: #0B3D24; }
+    .btn-wa:hover { background: #1FB855; }
+
+    /* ─── SECTION LAYOUT ─── */
+    .section-wrap {
+      padding: 72px 24px;
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: '';
+      height: 1px;
+      width: 40px;
+      background: var(--terra);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.15;
+      color: var(--brown);
+    }
+    .section-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--stone);
+      max-width: 580px;
+      margin-bottom: 52px;
+    }
+
+    /* ─── DIVIDERS ─── */
+    .ruled-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto 48px;
+    }
+    .ruled-divider::before,
+    .ruled-divider::after { content: ''; flex: 1; height: 1px; background: var(--parchment); }
+    .ruled-divider-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* ─── LETTER ─── */
+    .letter-wrap {
+      background: var(--cream);
+      padding: 72px 24px;
+    }
+    .letter-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      background: #fff;
+      padding: 44px 56px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .letter-summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--brown);
+    }
+    .letter-summary::-webkit-details-marker { display: none; }
+    .letter-summary::after { content: '▾'; font-style: normal; color: var(--gold); transition: transform .2s; }
+    .letter-accordion[open] .letter-summary::after { transform: rotate(180deg); }
+    .letter-open { margin-top: 30px; }
+    .letter-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 8px;
+    }
+    .letter-rule::before,
+    .letter-rule::after {
+      content: '';
+      height: 1px;
+      width: 80px;
+      background: var(--gold);
+      opacity: 0.45;
+    }
+    .letter-salutation {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.85;
+      color: var(--brown);
+      margin-bottom: 36px;
+    }
+    .letter-body p + p { margin-top: 20px; }
+    .letter-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--stone);
+      font-style: italic;
+    }
+    .letter-sign strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--terra);
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .signature-img {
+      display: block;
+      margin-top: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 60px;
+      width: auto;
+    }
+
+    /* ─── DETAILS BAND ─── */
+    .details-band {
+      background: var(--brown);
+      padding: 0;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .detail-item {
+      padding: 48px 36px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      color: var(--cream);
+    }
+    .detail-item:last-child { border-right: none; }
+    .detail-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .detail-label {
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .detail-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+    .detail-sub {
+      font-size: 0.82rem;
+      color: var(--stone);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ─── ACTIVITIES ─── */
+    .activities-wrap {
+      background: var(--parchment);
+    }
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(61,43,31,0.12);
+    }
+    .activity-card {
+      background: var(--cream);
+      padding: 40px 36px;
+      transition: background .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--terra);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .3s;
+    }
+    .activity-card:hover { background: #F0E4CA; }
+    .activity-card:hover::before { transform: scaleY(1); }
+    .activity-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+    .activity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--brown);
+    }
+    .activity-desc { font-size: 0.9rem; color: var(--stone); line-height: 1.65; }
+
+    /* ─── SCHEDULE ─── */
+    .schedule-wrap { background: var(--brown); }
+    .schedule-wrap .section-title { color: var(--cream); }
+    .schedule-wrap .section-sub { color: rgba(247,237,216,0.6); }
+    .schedule-wrap .section-label { color: var(--gold); }
+    .schedule-wrap .section-label::before { background: var(--gold); }
+
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1px 1fr;
+      gap: 0 32px;
+      min-height: 120px;
+    }
+    .tl-date {
+      padding: 32px 0;
+      text-align: right;
+    }
+    .tl-date-day {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .tl-date-dow {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 4px;
+      display: block;
+    }
+    .tl-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 38px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(192,138,48,0.25);
+    }
+    .timeline-item:last-child .tl-line { display: none; }
+    .tl-content {
+      padding: 28px 0 40px;
+    }
+    .tl-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .tl-desc { font-size: 0.9rem; color: rgba(247,237,216,0.6); line-height: 1.65; }
+    .tl-content.tl-featured {
+      background: rgba(184,92,44,0.10);
+      border: 1px solid rgba(184,92,44,0.35);
+      border-radius: 6px;
+      padding: 26px 24px 30px;
+      margin: 2px 0;
+    }
+    .tl-times {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(247,237,216,0.12);
+      font-size: 0.85rem;
+      color: rgba(247,237,216,0.72);
+    }
+    .tl-times div { display: flex; align-items: baseline; gap: 10px; }
+    .tl-times .tl-time { color: var(--gold); font-weight: 700; min-width: 92px; }
+    .tl-desc a, .tl-times a { color: var(--gold); font-weight: 700; text-decoration: none; }
+    .tl-desc a:hover, .tl-times a:hover { text-decoration: underline; }
+
+    /* Past days — collapsed to a compact struck-through line */
+    .timeline-item.past { opacity: 0.4; }
+    .timeline-item.past .tl-title,
+    .timeline-item.past .tl-date-day,
+    .timeline-item.past .tl-date-dow { text-decoration: line-through; }
+    .timeline-item.past .tl-title { font-size: 1.05rem; margin-bottom: 0; }
+    .timeline-item.past .tl-dot { background: var(--stone) !important; }
+    .timeline-item.past .tl-content { padding: 16px 0; background: none; border: none; }
+    .timeline-item.past .tl-img,
+    .timeline-item.past .tl-badge,
+    .timeline-item.past .tl-desc,
+    .timeline-item.past .tl-times,
+    .timeline-item.past .tl-content .btn { display: none; }
+
+    /* ─── VENUE ─── */
+    .venue-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .venue-visual {
+      position: relative;
+    }
+    .venue-img-box {
+      background: linear-gradient(135deg, var(--green) 0%, var(--brown) 100%);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--cream);
+      text-align: center;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .venue-img-box::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(247,237,216,0.2);
+      pointer-events: none;
+    }
+    .venue-img-icon { font-size: 4rem; margin-bottom: 8px; }
+    .venue-img-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+    }
+    .venue-img-sub { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+
+    .venue-caption {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      color: var(--stone);
+      text-align: center;
+    }
+
+    .venue-details { display: flex; flex-direction: column; gap: 28px; }
+    .venue-detail-row { display: flex; gap: 18px; align-items: flex-start; }
+    .vd-icon {
+      width: 36px; height: 36px;
+      background: var(--parchment);
+      border: 1px solid rgba(61,43,31,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: var(--terra);
+    }
+    .vd-text h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 3px; color: var(--brown); }
+    .vd-text p { font-size: 0.88rem; color: var(--stone); line-height: 1.55; }
+
+    /* ─── INSTAGRAM ─── */
+    .instagram-wrap { background: var(--parchment); }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .instagram-grid .instagram-media {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    .instagram-follow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
+    .instagram-follow a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .instagram-follow a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .instagram-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    /* ─── MOOD BOARD ─── */
+    .moodboard-wrap { background: var(--cream); }
+    .moodboard-frame {
+      background: #fff;
+      padding: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      border: 1px solid rgba(61,43,31,0.10);
+    }
+    .moodboard-embed {
+      min-height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    /* Pinterest widget injects an iframe/span here once pinit.js loads */
+    .moodboard-embed > span { margin: 0 auto !important; }
+    .moodboard-embed iframe { max-width: 100% !important; }
+    .moodboard-fallback {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--stone);
+      max-width: 420px;
+    }
+    .moodboard-fallback a { color: var(--terra); font-weight: 700; }
+    .moodboard-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
+    .moodboard-cta a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .moodboard-cta a:hover { text-decoration: underline; }
+
+    /* ─── HOTEL ─── */
+    .hotel-wrap { background: var(--parchment); }
+    .hotel-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .hotel-img {
+      background: linear-gradient(160deg, #3C5A3A 0%, #1f3020 100%);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--cream);
+      text-align: center;
+      padding: 40px;
+      position: relative;
+    }
+    .hotel-img::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(247,237,216,0.2);
+    }
+    .hotel-img-icon { font-size: 3.5rem; }
+    .hotel-img-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+    }
+    .hotel-img-sub { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+
+    .hotel-details { display: flex; flex-direction: column; gap: 20px; }
+    .hotel-detail { display: flex; gap: 16px; align-items: flex-start; }
+    .hd-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 28px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .hd-text h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; }
+    .hd-text p { font-size: 0.88rem; color: var(--stone); line-height: 1.55; }
+
+    /* ─── TRAVEL ─── */
+    .travel-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .travel-block {
+      background: var(--cream);
+      border: 1px solid rgba(61,43,31,0.12);
+      padding: 32px 28px;
+    }
+    .travel-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--brown);
+      margin-bottom: 6px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--parchment);
+    }
+    .travel-block h3 span { display: block; font-size: 0.72rem; font-family: 'Lato', sans-serif; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); font-weight: 700; margin-bottom: 6px; }
+    .travel-steps { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .ts { display: flex; gap: 12px; align-items: flex-start; }
+    .ts-bullet {
+      width: 6px; height: 6px;
+      background: var(--terra);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .ts p { font-size: 0.88rem; color: #666; line-height: 1.6; }
+    .ts p strong { color: var(--brown); font-weight: 700; }
+    .ts p a { color: var(--terra); font-weight: 700; text-decoration: none; }
+    .ts p a:hover { text-decoration: underline; }
+
+    .car-highlight {
+      background: var(--terra);
+      color: var(--cream);
+      padding: 14px 20px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    /* ─── CALCULATOR ─── */
+    .calc-wrap { background: var(--parchment); }
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .calc-inputs { display: flex; flex-direction: column; gap: 28px; }
+    .calc-row { display: flex; flex-direction: column; gap: 8px; }
+    .calc-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .calc-label span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--terra);
+      font-weight: 400;
+    }
+    .calc-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 3px;
+      background: rgba(61,43,31,0.2);
+      outline: none;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      border: 2px solid var(--brown);
+      cursor: pointer;
+    }
+    .calc-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .calc-tick {
+      font-size: 0.72rem;
+      color: var(--stone);
+      text-align: center;
+    }
+    .calc-result {
+      background: var(--brown);
+      padding: 36px;
+      position: sticky;
+      top: 80px;
+    }
+    .calc-result-title {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .calc-lines { display: flex; flex-direction: column; gap: 0; }
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .calc-line-label { font-size: 0.88rem; color: rgba(247,237,216,0.6); }
+    .calc-line-label em { display: block; font-size: 0.75rem; color: rgba(247,237,216,0.35); font-style: normal; margin-top: 2px; }
+    .calc-line-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+    .calc-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gold);
+    }
+    .calc-total-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .calc-total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .calc-note {
+      font-size: 0.75rem;
+      color: rgba(247,237,216,0.3);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-result { position: static; }
+    }
+
+    /* ─── RSVP ─── */
+    .outfit-wrap { background: var(--cream); }
+    .outfit-wrap .section-title { color: var(--brown); text-align: center; }
+    .outfit-wrap .section-sub { color: var(--brown-mid); }
+    .outfit-wrap .section-label { color: var(--stone); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1A120A;
+      text-align: center;
+      padding: 36px 24px;
+      border-top: 1px solid rgba(192,138,48,0.25);
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--stone);
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    /* ─── VENUE PHOTO ─── */
+    .venue-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── PHOTO GRID ─── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── MONTSENY ─── */
+
+    /* ─── TIMELINE IMAGE ─── */
+    .tl-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      margin-top: 16px;
+      opacity: 0.9;
+    }
+
+    /* ─── ACTIVITY CARD IMAGE ─── */
+    .activity-card-img {
+      width: calc(100% + 72px);
+      margin: -40px -36px 20px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── RIDES ─── */
+    .rides-wrap { background: var(--parchment); }
+    .rides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 900px) { .rides-grid { grid-template-columns: 1fr; } }
+
+    /* ─── ALT LODGING ─── */
+    .lodging-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .lodging-card {
+      background: var(--cream);
+      border: 1px solid rgba(61,43,31,0.12);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lodging-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+    .lodging-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--brown);
+      line-height: 1.3;
+    }
+    .lodging-card p { font-size: 0.87rem; color: var(--stone); line-height: 1.65; flex: 1; }
+    .lodging-card .btn { align-self: flex-start; margin-top: 4px; }
+
+    @media (max-width: 900px) {
+      .lodging-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .details-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .activities-grid { grid-template-columns: repeat(2, 1fr); }
+      .venue-layout, .hotel-layout { grid-template-columns: 1fr; }
+      .travel-cols { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 90px 1px 1fr; }
+      .tl-date-day { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .details-grid { grid-template-columns: 1fr; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .countdown { flex-wrap: wrap; border: none; gap: 2px; }
+      .countdown-unit { border: 1px solid rgba(192,138,48,0.4); min-width: 70px; }
+
+      /* Mobile nav menu */
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--brown);
+        border-bottom: 3px solid var(--gold);
+        padding: 6px 0 14px;
+        box-shadow: 0 16px 30px rgba(0,0,0,0.45);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height .3s ease, opacity .25s ease, visibility .3s;
+      }
+      nav.open .nav-links {
+        max-height: calc(100vh - 62px);
+        overflow-y: auto;
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-links > li { width: 100%; text-align: center; }
+      .nav-links > li > a {
+        display: block;
+        padding: 15px 24px;
+        font-size: 0.9rem;
+      }
+      /* Flatten the "More" dropdown into the list */
+      .nav-dropdown .nav-more { display: none; }
+      .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+      .nav-dropdown-menu::before { display: none; }
+      .nav-dropdown-menu a { padding: 15px 24px; font-size: 0.9rem; text-align: center; }
+      /* CTA buttons in the mobile menu */
+      .nav-btn {
+        margin: 10px auto 0;
+        padding: 12px 30px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Kevin's 32nd &mdash; <em>Mas el Vilaró</em></div>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#rides">Rides</a></li>
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#hotel">Hotel</a></li>
+    <li><a href="#travel">Travel</a></li>
+    <li class="nav-dropdown">
+      <a class="nav-more" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">More</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#moodboard">Mood Board</a></li>
+      </ul>
+    </li>
+    <li><a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="nav-btn nav-btn-wa">WhatsApp</a></li>
+    <li><a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="nav-btn nav-btn-rsvp">Aug 15 Dinner</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-sky"></div>
+    <div class="hero-bg-stars"></div>
+    <svg class="hero-bg-mountains" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,320 L0,220 L180,80 L360,180 L540,60 L720,160 L900,40 L1080,160 L1260,80 L1440,200 L1440,320 Z" fill="#1A1208" opacity="0.9"/>
+      <path d="M0,320 L0,260 L240,150 L420,230 L600,140 L780,210 L960,130 L1140,200 L1320,160 L1440,240 L1440,320 Z" fill="#2A1C10" opacity="0.85"/>
+      <path d="M0,320 L0,290 L200,220 L400,270 L600,210 L800,260 L1000,200 L1200,250 L1440,280 L1440,320 Z" fill="#3D2B1F" opacity="1"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">August 11 – 16, 2026</div>
+
+    <h1 class="hero-title">
+      Kevin's
+      <em>32nd Birthday</em>
+    </h1>
+
+    <div class="hero-rule"></div>
+
+    <p class="hero-dates">A week in the mountains of Catalonia</p>
+    <p class="hero-location">Mas el Vilaró &nbsp;·&nbsp; Sant Bartomeu del Grau, Spain</p>
+
+    <div class="countdown">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-days">—</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-hours">—</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-mins">—</span>
+        <span class="countdown-label">Mins</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-secs">—</span>
+        <span class="countdown-label">Secs</span>
+      </div>
+    </div>
+
+    <div id="rsvp" class="hero-rsvp">
+      <p class="hero-rsvp-line">Today's the big day 🎉 — a <strong>10:30</strong> tasting at Celler Abadal, then the party at the mas from <strong>15:30</strong> into the night.</p>
+      <div class="hero-cta">
+        <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary">RSVP · Aug 15 Dinner</a>
+        <a href="https://chat.whatsapp.com/JE3nI16cym129VA4PxWtZK?s=cl&amp;p=i&amp;ilr=0" target="_blank" rel="noopener" class="btn btn-wa">Join the WhatsApp Group</a>
+        <a href="https://www.icloud.com/invites/0cbLpYA5aIUcL5JEk5Wa467ug" target="_blank" rel="noopener" class="btn btn-dark">Full Trip Invite</a>
+      </div>
+      <p class="hero-rsvp-note">Questions? <a href="mailto:hello@kevinhawkinsdesign.com">Email</a> or <a href="https://wa.me/34625735141" target="_blank" rel="noopener">WhatsApp Kevin</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<div class="letter-wrap">
+  <details class="letter-inner reveal letter-accordion">
+    <summary class="letter-summary">✦&nbsp;&nbsp;A note from Kevin&nbsp;&nbsp;✦</summary>
+    <div class="letter-open">
+      <p class="letter-salutation">To my favourite people,</p>
+      <div class="letter-body">
+        <p>Turning 32 feels like the right moment to do things differently. No big party, no grand gesture — just a small group of people I love, in the mountains, with good wine and open sky.</p>
+        <p>You're here because you matter to me. I'd rather spend my birthday around a fire with a handful of real friends than in a room full of noise — with the people I care about just down the hall, out on the terrace, or somewhere in the hills.</p>
+        <p>It'll be quiet and full — of nature, long meals, maybe a solar eclipse, and definitely wine. I just want to be with you. That's the whole plan.</p>
+      </div>
+      <div class="letter-sign" style="text-align:center;">
+        With so much love,
+        <img src="https://raw.githubusercontent.com/kevinhawkinsdesign/birthday/main/signature.png" alt="Kevin's signature" class="signature-img" />
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- SCHEDULE -->
+<div id="schedule" class="section-wrap schedule-wrap tex-paper">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Week</div>
+      <h2 class="section-title">August in Osona</h2>
+      <p class="section-sub">The main dates are <strong>August 14–16</strong> — dinner at Siblings on Friday, the big party at the mas on Saturday, and a slow Sunday to wind down.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal past">
+        <div class="tl-date">
+          <span class="tl-date-day">11</span>
+          <span class="tl-date-dow">Tuesday</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--terra);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge" style="border-color:var(--terra);color:var(--terra);">Arrival · Dinner near the mas</span>
+          <div class="tl-title">Dinner near the mas 🍷</div>
+          <p class="tl-desc">Arrive at your own pace, check into your hotel in Vic, then make your way to Mas el Vilaró. Birthday dinner at the mas — unhurried, around the table, with good wine and the people who matter. That's the whole plan.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal past">
+        <div class="tl-date">
+          <span class="tl-date-day">12–13</span>
+          <span class="tl-date-dow">Wed – Thu</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--green);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge" style="border-color:var(--green-lt);color:var(--green-lt);">Open Days</span>
+          <div class="tl-title">Settle into the mountains — and maybe an eclipse 🌑</div>
+          <p class="tl-desc">Easy, unstructured days to make your way up to Sant Bartomeu del Grau and settle in at the mas. A bonus for the early crowd: on the evening of the 12th, a total solar eclipse crosses Spain at sunset — worth a drive south to catch totality if you're around. Otherwise, it's hills, wine, and good company.</p>
+          <img src="https://offloadmedia.feverup.com/barcelonasecreta.com/wp-content/uploads/2022/10/08090632/eclipse-solar-1-1024x576.jpg" alt="Total solar eclipse over Spain" class="tl-img" />
+        </div>
+      </div>
+
+      <div class="timeline-item reveal past">
+        <div class="tl-date">
+          <span class="tl-date-day">14</span>
+          <span class="tl-date-dow">Friday</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--gold);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge" style="border-color:var(--gold);color:var(--gold);">Friday · Dinner</span>
+          <div class="tl-title">Dinner at Siblings Restaurant 🍽️</div>
+          <p class="tl-desc">The main focus for Friday — a group dinner at Siblings Restaurant in Vic. Join us at <strong>8pm (20:00)</strong> to kick off the weekend together. Come hungry.</p>
+          <div class="tl-times">
+            <div><span class="tl-time">20:00</span><span>Dinner at Siblings Restaurant, Vic</span></div>
+          </div>
+          <a href="https://maps.app.goo.gl/Spxck7oubcM5kRZr9" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">Open Siblings in Maps &rarr;</a>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="tl-date">
+          <span class="tl-date-day">15</span>
+          <span class="tl-date-dow">Saturday</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--terra);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content tl-featured">
+          <span class="tl-badge" style="background:var(--terra);border-color:var(--terra);color:var(--cream);">★ The Main Event</span>
+          <div class="tl-title">The main day — countryside by day, party by night 🎉</div>
+          <p class="tl-desc">The day everything's been building toward — from a morning at the winery to the small hours on the dance floor. It opens with a 10:30 wine &amp; cheese tasting and tour at <a href="https://abadal.net/calendar/" target="_blank" rel="noopener">Celler Abadal</a> and lunch in town, then everyone gathers at Mas el Vilaró from 15:30 for yard games, walks through the fields, a swim, and the cows — rolling into a movie at sunset, a group photo, a long dinner, and music until late. If there's one day to be here for, it's this one.</p>
+          <div class="tl-times">
+            <div><span class="tl-time">10:30</span><span>Wine &amp; cheese tasting + tour at <a href="https://maps.app.goo.gl/XbgB5o6F2t21vXfj7" target="_blank" rel="noopener">Celler Abadal</a></span></div>
+            <div><span class="tl-time">13:00</span><span>Lunch at <a href="https://maps.app.goo.gl/42DPKSdXkiCNbzKm6" target="_blank" rel="noopener">Piola</a> or <a href="https://maps.app.goo.gl/rw6BRiY7eXpWek4aA" target="_blank" rel="noopener">Restaurant Can Rafael</a> (a local favourite) — optional but encouraged</span></div>
+            <div><span class="tl-time">15:30+</span><span>Arrive at Mas el Vilaró — yard games (Jenga, cornhole, cards), walks, a swim, and the cows</span></div>
+            <div><span class="tl-time">Sunset</span><span>Outdoor movie screening</span></div>
+            <div><span class="tl-time">19:30</span><span>Group photo 📸</span></div>
+            <div><span class="tl-time">20:00</span><span>Leisurely dinner</span></div>
+            <div><span class="tl-time">Til 2am</span><span>Music &amp; dancing under the stars</span></div>
+          </div>
+          <p class="tl-desc" style="margin-top:14px;">🎲 Bring a fun game or toy if you like — and we'll have a drone.</p>
+          <a href="https://luma.com/oqxldj1e" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">RSVP for the Aug 15 Dinner &rarr;</a>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="tl-date">
+          <span class="tl-date-day">16</span>
+          <span class="tl-date-dow">Sunday</span>
+        </div>
+        <div class="tl-spine">
+          <div class="tl-dot" style="background:var(--stone);"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <span class="tl-badge" style="border-color:var(--stone);color:var(--stone);">Wind Down</span>
+          <div class="tl-title">Hangovers, chilling, and goodbyes</div>
+          <p class="tl-desc">A slow one. Recover from the night before, linger over a long breakfast, take it easy around the mas — then final farewells and the drive back to Barcelona airport.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RIDES -->
+<div id="rides" class="section-wrap rides-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Getting There &amp; Back</div>
+      <h2 class="section-title">Rides for Saturday</h2>
+      <p class="section-sub">Let's sort how everyone gets up to Mas el Vilaró and back to the city. Add your name to the right sheet — the sooner the better, so we can match people up.</p>
+    </div>
+    <div class="rides-grid">
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">🚗 Getting up</div>
+        <h3>Carpool up to the mas</h3>
+        <p>Driving up on Saturday? Add the seats you can offer. Need a ride? Note where you're coming from and we'll match people in the sheet — aim to reach the mas from 15:30.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1M36CcuRn3zKTSSvi4XKih9jpbKSpK4tXKat6keSGLeA/edit" target="_blank" rel="noopener" class="btn btn-primary">Carpool sign-up &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">🚗🚌 Getting back</div>
+        <h3>Carpool/shuttle back to the city</h3>
+        <p>Heading back after the party? A shuttle bus leaves the mas at <strong>23:00</strong>, dropping in Vic or Barcelona — reserve a seat in the sheet. Some are driving back too, so a carpool spot may be an option as well.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1dLEu8pbcSuPbgS8kQafDlHslTbs7mZ4r7B7Ov3gwZRw/edit" target="_blank" rel="noopener" class="btn btn-primary">Reserve a shuttle seat &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<div id="activities" class="section-wrap activities-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Plan</div>
+      <h2 class="section-title">A week of everything</h2>
+      <p class="section-sub">We'll be based at Mas el Vilaró with days full of good food, open air, and whatever mood strikes.</p>
+    </div>
+
+    <div class="activities-grid">
+      <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Hiking in the mountains" class="activity-card-img" />
+        <span class="activity-icon">🥾</span>
+        <h3 class="activity-title">Hiking</h3>
+        <p class="activity-desc">The Osona countryside is right on our doorstep — trails through oak and beech forest, quiet valleys, and sweeping views. All levels welcome.</p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='800'%20height='500'%3E%3Cdefs%3E%3ClinearGradient%20id='wr'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237B2FF7'/%3E%3Cstop%20offset='0.55'%20stop-color='%23F72FA0'/%3E%3Cstop%20offset='1'%20stop-color='%232FB8F7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='800'%20height='500'%20fill='url(%23wr)'/%3E%3Ccircle%20cx='200'%20cy='150'%20r='120'%20fill='%23ffffff'%20opacity='0.15'/%3E%3Ccircle%20cx='600'%20cy='350'%20r='160'%20fill='%23000000'%20opacity='0.12'/%3E%3Ccircle%20cx='520'%20cy='120'%20r='70'%20fill='%23ffe14d'%20opacity='0.5'/%3E%3C/svg%3E" alt="White Rabbit immersive art" class="activity-card-img" />
+        <span class="activity-icon">🐇</span>
+        <h3 class="activity-title">White Rabbit</h3>
+        <p class="activity-desc">Barcelona's "off-museum" — 10 immersive installations of graffiti, sculpture, light and digital art reimagining Catalan culture. Touch it, photograph it, dance in it; there are no "do not touch" signs. <a href="https://whiterabbit-theoffmuseum.com/en/" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;">whiterabbit-theoffmuseum.com</a></p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/5326898/pexels-photo-5326898.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Outdoor swimming pool" class="activity-card-img" />
+        <span class="activity-icon">🏊</span>
+        <h3 class="activity-title">Swimming</h3>
+        <p class="activity-desc">Cool off in the pool at the mas — cold drinks, good conversation, and zero agenda. The height of an August afternoon in Catalonia.</p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Wine glasses tasting" class="activity-card-img" />
+        <span class="activity-icon">🍷</span>
+        <h3 class="activity-title">Wine Tastings</h3>
+        <p class="activity-desc">Two exceptional bodegas are right on our doorstep. <a href="https://cellersantmiqueldolo.com/producto/visites-descobrir-el-celler/" target="_blank" style="color:var(--terra);font-weight:700;">Celler Sant Miquel d'Oló</a> — a family winery at 800m with a Romanesque hermitage and tastings of 4 wines with local products <strong>(Saturday only)</strong>. And <a href="https://www.lesacacies.com/enoturismo/" target="_blank" style="color:var(--terra);font-weight:700;">Les Acàcies</a> in Avinyó — claimed to be the smallest winery in the world, guided vineyard tour with cheese, sausages and pa amb tomàquet for €15/person.</p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="https://images.pexels.com/photos/17383426/pexels-photo-17383426.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1" alt="Golf course landscape" class="activity-card-img" />
+        <span class="activity-icon">⛳</span>
+        <h3 class="activity-title">Golf</h3>
+        <p class="activity-desc">Club de Golf Montanyà is a scenic 18-hole course designed by David Thomas, set in the hills with stunning mountain backdrops. 9 holes €100 · 18 holes €140.</p>
+      </div>
+      <div class="activity-card reveal">
+        <img src="images/mas-el-vilaro-night.jpg" alt="Evening at Mas el Vilaró" class="activity-card-img" />
+        <span class="activity-icon">🪵</span>
+        <h3 class="activity-title">Just Chilling</h3>
+        <p class="activity-desc">Long dinners on the terrace. Evening fires. Slow mornings with coffee and nowhere to be. The best kind of week.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VENUE -->
+<div id="venue" class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Home Base</div>
+      <h2 class="section-title">Mas el Vilaró</h2>
+      <p class="section-sub">Our mas near Sant Bartomeu del Grau is where most of the magic will happen. A traditional Catalan farmhouse surrounded by hills, forest, and good people.</p>
+    </div>
+
+    <div class="venue-layout">
+      <div class="venue-visual reveal">
+        <img src="images/mas-el-vilaro.jpg" alt="Mas el Vilaró, Sant Bartomeu del Grau, Catalonia" class="venue-photo" />
+        <p class="venue-caption">Mas el Vilaró · Sant Bartomeu del Grau · Catalonia</p>
+      </div>
+
+      <div class="venue-details reveal">
+        <div class="venue-detail-row">
+          <div class="vd-icon">📍</div>
+          <div class="vd-text">
+            <h4>Location</h4>
+            <p>Sant Bartomeu del Grau, Osona, Catalonia — a traditional farmhouse in the hills, just over an hour north of Barcelona. Fresh country air, every day.</p>
+          </div>
+        </div>
+        <div class="venue-detail-row">
+          <div class="vd-icon">🌿</div>
+          <div class="vd-text">
+            <h4>Grounds to Roam</h4>
+            <p>Woodland, open fields, and country lanes right around the mas — space to wander, with the hills of Osona at the doorstep.</p>
+          </div>
+        </div>
+        <div class="venue-detail-row">
+          <div class="vd-icon">🏡</div>
+          <div class="vd-text">
+            <h4>Ours for the Weekend</h4>
+            <p>A private Catalan farmhouse, ours for the whole celebration — a pool, big rooms to gather and eat in, and open fields to dance in. Plenty of space for everyone.</p>
+          </div>
+        </div>
+        <div class="venue-detail-row">
+          <div class="vd-icon">📍</div>
+          <div class="vd-text">
+            <h4>Nearby</h4>
+            <p>Vic — the capital of the Osona region — is a short drive, with restaurants, markets, and Romanesque heritage. Hiking trailheads and open country all around.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;">
+          <a href="https://maps.app.goo.gl/soYRb7BB5bNfw2nEA" target="_blank" rel="noopener" class="btn btn-dark">Open in Maps &rarr;</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Mas%20el%20Vilar%C3%B3%2C%20BV-4601%2C%2008503%20Sant%20Bartomeu%20del%20Grau" target="_blank" rel="noopener" class="btn btn-secondary" style="color:var(--brown);border-color:var(--brown-mid);">Directions &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MONTSENY -->
+<!-- INSTAGRAM -->
+<div class="section-wrap instagram-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Landscape</div>
+      <h2 class="section-title">See for Yourself</h2>
+      <p class="section-sub">A glimpse of Mas el Vilaró and the week ahead.</p>
+    </div>
+
+    <div class="photo-grid reveal">
+      <img src="images/mas-el-vilaro-pavilion.jpg" alt="Mas el Vilaró — farmhouse, pavilion, and fields" />
+      <img src="images/mas-el-vilaro-night.jpg" alt="The pavilion at Mas el Vilaró lit up at night" />
+    </div>
+  </div>
+</div>
+<script async src="//www.instagram.com/embed.js"></script>
+
+<!-- MOOD BOARD -->
+<div id="moodboard" class="section-wrap moodboard-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Vibe</div>
+      <h2 class="section-title">Mood Board</h2>
+      <p class="section-sub">The look, the feel, the colours of the week — long lunches, golden light, linen and laughter. A living board of inspiration for what we're building together.</p>
+    </div>
+
+    <div class="moodboard-frame reveal">
+      <div class="moodboard-embed">
+        <!-- Pinterest board embed: renders the live board in the visitor's browser via pinit.js. -->
+        <a data-pin-do="embedBoard"
+           data-pin-board-width="1040"
+           data-pin-scale-height="320"
+           data-pin-scale-width="120"
+           href="https://pin.it/3LwIHDCge">
+          <span class="moodboard-fallback">
+            Loading the board… if it doesn't appear,
+            <a href="https://pin.it/3LwIHDCge" target="_blank" rel="noopener">view the mood board on Pinterest →</a>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="moodboard-cta reveal">
+      <span>The full collection →</span>
+      <a href="https://pin.it/3LwIHDCge" target="_blank" rel="noopener">Open the board on Pinterest</a>
+    </div>
+  </div>
+</div>
+<!-- pinit.js is loaded once near the end of <body>; it scans the whole page for [data-pin-do] boards -->
+
+<!-- HOTEL -->
+<div id="hotel" class="section-wrap hotel-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Where to Stay</div>
+      <h2 class="section-title">Hotels in Vic</h2>
+      <p class="section-sub">Vic — the lively capital of the Osona region — is about a 15–20 minute drive from Mas el Vilaró, with the best choice of hotels, restaurants, and things to do. A few we'd recommend:</p>
+    </div>
+
+    <div class="lodging-grid">
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">4★ · Central</div>
+        <h3>UP Rooms Vic</h3>
+        <p>A modern, top-rated 4-star right in the heart of Vic — walkable to the old town, the market square, and dinner. Restaurant and free Wi-Fi on site.</p>
+        <a href="https://www.booking.com/searchresults.html?ss=UP%20Rooms%20Vic" target="_blank" rel="noopener" class="btn btn-dark">Check availability &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">Boutique</div>
+        <h3>Hotel Estació del Nord</h3>
+        <p>A characterful boutique hotel set in Vic's beautifully restored old railway station. Central, stylish, and well-reviewed — a lovely base for the week.</p>
+        <a href="https://www.booking.com/searchresults.html?ss=Hotel%20Estaci%C3%B3%20del%20Nord%20Vic" target="_blank" rel="noopener" class="btn btn-dark">Check availability &rarr;</a>
+      </div>
+      <div class="lodging-card reveal">
+        <div class="lodging-badge">Comfortable · Central</div>
+        <h3>Hotel J. Balmes Vic</h3>
+        <p>A comfortable, well-rated hotel just outside Vic's historic centre, with a restaurant and easy parking. A reliable, convenient home base for the trip.</p>
+        <a href="https://www.booking.com/searchresults.html?ss=Hotel%20J.%20Balmes%20Vic" target="_blank" rel="noopener" class="btn btn-dark">Check availability &rarr;</a>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:26px; font-size:0.9rem; line-height:1.7; color:var(--stone);">
+      <strong style="color:var(--brown);">Farther afield:</strong> <a href="https://www.booking.com/searchresults.html?ss=Hotel%20Montany%C3%A0%20Seva" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;">Hotel Montanyà</a> (Seva) is a 4★ resort with a pool and the Senzia spa — lovely, but about <strong style="color:var(--brown);">40 minutes</strong> from the venue. <a href="https://www.booking.com/searchresults.html?ss=Parador%20de%20Vic-Sau" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;">Parador de Vic-Sau</a> is a scenic 4★ with a pool by the Sau reservoir. Browse everything in and around Vic on <a href="https://www.booking.com/city/es/vic.html" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;">Booking.com</a> — and book early, as August is peak season.
+    </div>
+  </div>
+</div>
+
+<!-- TRAVEL -->
+<div id="travel" class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Getting There</div>
+      <h2 class="section-title">Travel Guide</h2>
+      <p class="section-sub">Fly into Barcelona, then take the train up to Vic and grab a taxi to the mas — or rent a car for total freedom. One of the easier trips in Europe.</p>
+    </div>
+
+    <div class="travel-cols">
+      <div class="travel-block reveal">
+        <h3><span>Fly</span>Barcelona El Prat (BCN)</h3>
+        <div class="travel-steps">
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Barcelona El Prat Airport</strong> — main international hub, roughly 75km south of the venue.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Aim to land <strong>August 11</strong> to collect rental car and reach hotel before evening.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Departing <strong>August 16</strong>? Allow 2+ hours to the airport.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Book <strong>early</strong> — August is peak season.</p></div>
+        </div>
+      </div>
+
+      <div class="travel-block reveal">
+        <h3><span>Train + Taxi</span>Train to Vic, then a Taxi</h3>
+        <div class="car-highlight">🚆 &nbsp;Easiest without a car: the R3 train to Vic, then a short taxi to the mas.</div>
+        <div class="travel-steps">
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Train (R3):</strong> Rodalies R3 from Barcelona (Sants or Plaça Catalunya) toward Vic/Ripoll — roughly 1h20 to <strong>Vic station</strong>.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Taxi from Vic:</strong> ~15–20 min from the station to Mas el Vilaró. Best to call ahead — cars aren't always waiting.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><a href="https://taxieras.cat/" target="_blank" rel="noopener">Taxi Eras</a> · <a href="tel:+34609390980">609 390 980</a></p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><a href="https://taxivicpijuan.cat/" target="_blank" rel="noopener">Taxi Vic Pijuan</a> · <a href="tel:+34654065435">654 065 435</a> · 24h</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><a href="https://taxitonivic.com/" target="_blank" rel="noopener">Taxi Toni Vic</a> · <a href="tel:+34620716185">620 716 185</a></p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Prefer to drive?</strong> Rent a car at BCN (~1 hr via the C-17 north). GPS: Mas el Vilaró, BV-4601, 08503 Sant Bartomeu del Grau.</p></div>
+        </div>
+      </div>
+
+      <div class="travel-block reveal">
+        <h3><span>Know</span>Weather &amp; Essentials</h3>
+        <div class="travel-steps">
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Weather:</strong> Hill country. August 24–30°C days, cool evenings. Bring a light layer.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Visa:</strong> EU/EEA free entry. Others check Spain requirements.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Currency:</strong> Euro (€). Cards widely accepted. Bring some cash.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Data:</strong> Consider EU eSIM (<a href="https://airalo.com" target="_blank" style="color:var(--terra);">Airalo</a>). Language: Catalan/Spanish. English fine in most places.</p></div>
+        </div>
+      </div>
+
+      <div class="travel-block reveal">
+        <h3><span>Directions</span>Once You Arrive</h3>
+        <div class="travel-steps">
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Your hotel in Vic:</strong> Your first stop. Check in, rest, then head to Mas el Vilaró.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>Mas el Vilaró:</strong> Our home base for the week. Dinner on arrival evening.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p><strong>GPS routing:</strong> Use the address <strong>Mas el Vilaró, BV-4601, 08503 Sant Bartomeu del Grau</strong> for accurate navigation to the mas.</p></div>
+          <div class="ts"><div class="ts-bullet"></div><p>Questions? <a href="mailto:hello@kevinhawkinsdesign.com" style="color:var(--terra);">Email</a> or <a href="https://wa.me/34625735141" target="_blank" style="color:var(--terra);">WhatsApp</a> Kevin.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="section-wrap calc-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Plan Your Trip</div>
+      <h2 class="section-title">What will it cost?</h2>
+      <p class="section-sub">Adjust the sliders to estimate your share. Prices are per person unless noted.</p>
+    </div>
+
+    <div class="calc-layout reveal">
+      <div class="calc-inputs">
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Hotel nights
+            <span id="lbl-nights">5 nights</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-nights" min="1" max="5" value="5" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Meals
+            <span id="lbl-meals">15 meals</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-meals" min="0" max="15" value="15" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">5</span>
+            <span class="calc-tick">10</span>
+            <span class="calc-tick">15</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Rental car days
+            <span id="lbl-cardays">6 days</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-cardays" min="0" max="6" value="6" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">6</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Splitting car with
+            <span id="lbl-carpeople">2 people</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-carpeople" min="1" max="5" value="2" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">Just me</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+            <span class="calc-tick">5</span>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">
+            Golf rounds
+            <span id="lbl-golf">0 rounds</span>
+          </div>
+          <input type="range" class="calc-slider" id="sl-golf" min="0" max="4" value="0" step="1" />
+          <div class="calc-ticks">
+            <span class="calc-tick">0</span>
+            <span class="calc-tick">1</span>
+            <span class="calc-tick">2</span>
+            <span class="calc-tick">3</span>
+            <span class="calc-tick">4</span>
+          </div>
+          <div class="calc-golf-toggle" id="golf-toggle-wrap" style="display:none; margin-top:8px; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span style="font-size:0.82rem; color:var(--brown-mid);">Holes per round:</span>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-9" value="9" checked /> 9 holes (€100)
+            </label>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:0.85rem;">
+              <input type="radio" name="golf-holes" id="golf-18" value="18" /> 18 holes (€140)
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-row" style="border-bottom:none; padding-bottom:0;">
+          <div class="calc-label" style="margin-bottom:10px;">
+            Split trip cost
+            <span id="lbl-split">Just me</span>
+          </div>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;">
+            <div class="calc-split-toggle" id="split-toggle" role="switch" aria-checked="false" onclick="toggleSplit()" style="width:44px;height:24px;background:var(--stone);border-radius:12px;position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;">
+              <div id="split-knob" style="width:18px;height:18px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:left 0.2s;"></div>
+            </div>
+            <span style="font-size:0.85rem;color:var(--brown-mid);">Sharing the trip with 1 other person</span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-title" id="calc-result-title">Your estimated total</div>
+        <div class="calc-lines">
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Hotel in Vic
+              <em id="sub-nights-label">5 nights × €124</em>
+            </div>
+            <div class="calc-line-amount" id="sub-nights">€744</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Meals
+              <em id="sub-meals-label">15 meals × €35</em>
+            </div>
+            <div class="calc-line-amount" id="sub-meals">€630</div>
+          </div>
+          <div class="calc-line">
+            <div class="calc-line-label">
+              Rental car (your share)
+              <em id="sub-car-label">6 days × €95 ÷ 2</em>
+            </div>
+            <div class="calc-line-amount" id="sub-car">€333</div>
+          </div>
+          <div class="calc-line" id="golf-line" style="display:none;">
+            <div class="calc-line-label">
+              Golf
+              <em id="sub-golf-label">0 rounds</em>
+            </div>
+            <div class="calc-line-amount" id="sub-golf">€0</div>
+          </div>
+        </div>
+        <div class="calc-total">
+          <div class="calc-total-label" id="calc-total-label">Estimated total</div>
+          <div class="calc-total-amount" id="calc-grand">€1,707</div>
+        </div>
+        <div class="calc-total calc-total-split" id="calc-split-row" style="display:none; margin-top:0; padding-top:10px; border-top: 1px dashed var(--parchment);">
+          <div class="calc-total-label">Per person</div>
+          <div class="calc-total-amount" id="calc-per-person" style="font-size:1.5rem;">€854</div>
+        </div>
+        <p class="calc-note">Flights, activities, and extras not included. Hotel and car prices are approximate — book early for best rates.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTFIT INSPIRATION -->
+<div class="section-wrap outfit-wrap tex-paper">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">
+        <span style="display:inline-block;width:32px;height:1px;background:var(--stone);margin-right:12px;vertical-align:middle;"></span>
+        Dress Code
+        <span style="display:inline-block;width:32px;height:1px;background:var(--stone);margin-left:12px;vertical-align:middle;"></span>
+      </div>
+      <h2 class="section-title" style="text-align:center;">Outfit Inspiration</h2>
+      <p class="section-sub" style="text-align:center; max-width:540px; margin:0 auto 36px;">Think rustic European summer — linen, earthy tones, things you'd wear to a countryside dinner or a morning walk through the hills. Comfortable enough to move, nice enough for a birthday.</p>
+    </div>
+    <div class="reveal" style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+      <a data-pin-do="embedBoard"
+         href="https://es.pinterest.com/kevinhawkinsdc/kevins-bday-outfit-inspo/"
+         data-pin-board-width="900"
+         data-pin-scale-height="400"
+         data-pin-scale-width="115">
+      </a>
+      <a href="https://es.pinterest.com/kevinhawkinsdc/kevins-bday-outfit-inspo/" target="_blank" rel="noopener" class="btn btn-secondary" style="align-self:center;">View full board on Pinterest &rarr;</a>
+    </div>
+  </div>
+</div>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+<!-- FOOTER -->
+<footer>
+  <p>Kevin's 32nd Birthday &nbsp;·&nbsp; August 11–16, 2026 &nbsp;·&nbsp; Sant Bartomeu del Grau, Catalonia, Spain</p>
+  <p style="margin-top:6px;">Questions? <a href="mailto:hello@kevinhawkinsdesign.com">hello@kevinhawkinsdesign.com</a> &nbsp;·&nbsp; <a href="https://wa.me/34625735141" target="_blank">WhatsApp +34 625 735 141</a></p>
+</footer>
+
+<script>
+  // ── COUNTDOWN ──
+  function tick() {
+    const target = new Date('2026-08-15T17:00:00+02:00');
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0');
+      return;
+    }
+    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 3600000)  / 60000)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 60000)    / 1000)).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // ── RSVP ──
+  // ── CALCULATOR ──
+  const HOTEL_RATE = 124;
+  const MEAL_RATE  = 35;
+  const CAR_RATE   = 95;
+  const GOLF_9     = 100;
+  const GOLF_18    = 140;
+
+  function fmt(n) {
+    return '€' + Math.round(n).toLocaleString('en-GB');
+  }
+
+  let splitTrip = false;
+
+  function toggleSplit() {
+    splitTrip = !splitTrip;
+    const toggle = document.getElementById('split-toggle');
+    const knob   = document.getElementById('split-knob');
+    toggle.style.background = splitTrip ? 'var(--terra)' : 'var(--stone)';
+    knob.style.left = splitTrip ? '23px' : '3px';
+    toggle.setAttribute('aria-checked', splitTrip);
+    document.getElementById('lbl-split').textContent = splitTrip ? '2 people' : 'Just me';
+    updateCalc();
+  }
+
+  function updateCalc() {
+    const nights    = +document.getElementById('sl-nights').value;
+    const meals     = +document.getElementById('sl-meals').value;
+    const carDays   = +document.getElementById('sl-cardays').value;
+    const carPeople = +document.getElementById('sl-carpeople').value;
+    const golfRnds  = +document.getElementById('sl-golf').value;
+    const holes     = document.querySelector('input[name="golf-holes"]:checked')?.value === '18' ? 18 : 9;
+    const golfRate  = holes === 18 ? GOLF_18 : GOLF_9;
+
+    const hotelTotal = nights * HOTEL_RATE;
+    const mealTotal  = meals  * MEAL_RATE;
+    const carShare   = (carDays * CAR_RATE) / carPeople;
+    const golfTotal  = golfRnds * golfRate;
+    const grand      = hotelTotal + mealTotal + carShare + golfTotal;
+    const perPerson  = grand / 2;
+
+    document.getElementById('lbl-nights').textContent    = nights + (nights === 1 ? ' night' : ' nights');
+    document.getElementById('lbl-meals').textContent     = meals  + (meals  === 1 ? ' meal'  : ' meals');
+    document.getElementById('lbl-cardays').textContent   = carDays + (carDays === 1 ? ' day' : ' days');
+    document.getElementById('lbl-carpeople').textContent = carPeople === 1 ? 'Just me' : carPeople + ' people';
+    document.getElementById('lbl-golf').textContent      = golfRnds + (golfRnds === 1 ? ' round' : ' rounds');
+
+    document.getElementById('sub-nights-label').textContent = nights + ' nights × €' + HOTEL_RATE;
+    document.getElementById('sub-meals-label').textContent  = meals  + ' meals × €'  + MEAL_RATE;
+    document.getElementById('sub-car-label').textContent    = carDays === 0
+      ? 'No car'
+      : carDays + ' days × €' + CAR_RATE + (carPeople > 1 ? ' ÷ ' + carPeople : '');
+
+    document.getElementById('sub-nights').textContent = fmt(hotelTotal);
+    document.getElementById('sub-meals').textContent  = fmt(mealTotal);
+    document.getElementById('sub-car').textContent    = fmt(carShare);
+
+    const golfToggle = document.getElementById('golf-toggle-wrap');
+    const golfLine   = document.getElementById('golf-line');
+    if (golfRnds > 0) {
+      golfToggle.style.display = 'flex';
+      golfLine.style.display   = 'flex';
+      document.getElementById('sub-golf-label').textContent = golfRnds + ' × ' + holes + ' holes × €' + golfRate;
+      document.getElementById('sub-golf').textContent       = fmt(golfTotal);
+    } else {
+      golfToggle.style.display = 'none';
+      golfLine.style.display   = 'none';
+    }
+
+    document.getElementById('calc-grand').textContent   = fmt(grand);
+    document.getElementById('calc-result-title').textContent = splitTrip ? 'Combined trip total' : 'Your estimated total';
+    document.getElementById('calc-total-label').textContent  = splitTrip ? 'Total (2 people)' : 'Estimated total';
+
+    const splitRow = document.getElementById('calc-split-row');
+    if (splitTrip) {
+      splitRow.style.display = 'flex';
+      document.getElementById('calc-per-person').textContent = fmt(perPerson);
+    } else {
+      splitRow.style.display = 'none';
+    }
+  }
+
+  ['sl-nights','sl-meals','sl-cardays','sl-carpeople','sl-golf'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateCalc);
+  });
+  document.querySelectorAll('input[name="golf-holes"]').forEach(el => {
+    el.addEventListener('change', updateCalc);
+  });
+  updateCalc();
+
+</script>
+
+<script>
+  // ── NAV "MORE" DROPDOWN ──
+  (function () {
+    var dd = document.querySelector('.nav-dropdown');
+    if (!dd) return;
+    var trigger = dd.querySelector('.nav-more');
+    function close() { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = dd.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
+      if (e.key === 'Escape') close();
+    });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) close(); });
+    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function (a) {
+      a.addEventListener('click', close);
+    });
+  })();
+
+  // ── MOBILE NAV (hamburger) ──
+  (function () {
+    var nav = document.querySelector('nav');
+    var toggle = nav && nav.querySelector('.nav-toggle');
+    var links = nav && nav.querySelector('.nav-links');
+    if (!nav || !toggle || !links) return;
+    function setOpen(open) {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+    // Close the menu after tapping any link inside it
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    // Close on Escape, and reset when resizing back to desktop
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 600) setOpen(false); });
+  })();
+</script>
+</body>
+</html>

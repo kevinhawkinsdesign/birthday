@@ -167,6 +167,8 @@
   .note { position: relative; padding: 13px 0 13px 22px; border-bottom: 1px dashed rgba(36,23,19,0.16); font-size: 0.92rem; color: var(--ink); }
   .note::before { content: '◆'; position: absolute; left: 0; top: 16px; color: var(--red); font-size: 0.6rem; }
   .note b { font-weight: 700; } .note .cyt { color: var(--green-d); font-style: italic; }
+  .note a { color: var(--red); font-weight: 700; text-decoration: none; } .note a:hover { text-decoration: underline; }
+  .notes.light .note a { color: #ffe1a8; }
   .note .np { display: inline-block; margin-left: 4px; font-size: 0.7rem; font-weight: 700; color: var(--green-d); background: rgba(0,155,116,0.1); border: 1px solid rgba(0,155,116,0.3); padding: 1px 9px; border-radius: 20px; white-space: nowrap; }
   .notes.light .note { color: var(--paper); border-color: rgba(255,255,255,0.2); }
   .notes.light .note .cyt { color: #cfe9dd; }
@@ -303,7 +305,7 @@
   </svg>
   <div class="big33 hero-anim d2"><span class="g">3</span><span class="r">3</span></div>
   <h1 class="hero-title hero-anim d2">Kevin turns <em>Thirty-Three</em></h1>
-  <p class="hero-cyr hero-anim d3">Честит 33-ти рожден ден · Happy 33rd birthday</p>
+  <p class="hero-cyr hero-anim d3">Ела да празнуваме · Come and celebrate</p>
   <p class="hero-loc hero-anim d3">Five days in Sofia · <span class="lev">Наздраве! (Cheers!)</span></p>
   <div class="flag-stripe hero-anim d3"><i></i><i></i><i></i></div>
   <div class="countdown hero-anim d4" id="countdown">
@@ -491,16 +493,16 @@
   <div class="inner reveal">
     <div class="sec-label">Beyond the museums <span class="cy">· забавление (fun)</span></div>
     <h2 class="sec-title">For the restless</h2>
-    <p class="sec-sub">Not a museum in sight — the stuff a 20-to-35 crowd actually wants to do.</p>
+    <p class="sec-sub">Not a museum in sight — the good stuff, with links to book.</p>
     <div class="trio">
-      <div class="card"><span class="num3">1</span><span class="ic">🎤</span><h3>Live music &amp; concerts<span class="cy">концерти · concerts</span></h3><p>International acts pass through Arena Sofia and NDK, and summer fills the city with open-air festivals. We'll check the listings for our dates.</p><span class="cost">Tickets ~€20–60</span></div>
-      <div class="card"><span class="num3">2</span><span class="ic">🏎️</span><h3>Go-karting<span class="cy">картинг · karting</span></h3><p>Indoor and outdoor tracks around Sofia for a proper race — helmets, timing screens and bragging rights for the crew.</p><span class="cost">~€15–25 / session</span></div>
-      <div class="card"><span class="num3">3</span><span class="ic">🎨</span><h3>Hands-on workshops<span class="cy">работилници · workshops</span></h3><p>Roll banitsa in a cooking class, throw pottery, blend rose-oil perfume, or learn the horo — brilliant for a group afternoon.</p><span class="cost">~€25–45 / person</span></div>
+      <div class="card"><span class="num3">1</span><span class="ic">🎤</span><h3>Live music &amp; concerts<span class="cy">концерти · concerts</span></h3><p>International acts pass through Arena Sofia and NDK, and summer fills the city with open-air festivals. <a href="https://www.bandsintown.com/c/sofia-bulgaria" target="_blank" rel="noopener">See what's on in Sofia →</a></p><span class="cost">Tickets ~€20–60</span></div>
+      <div class="card"><span class="num3">2</span><span class="ic">🏎️</span><h3>Go-karting<span class="cy">картинг · karting</span></h3><p>Indoor and outdoor tracks for a proper race — helmets, timing screens and bragging rights. <a href="https://www.tripadvisor.com/Attraction_Review-g294452-d8073405-Reviews-Sofia_Karting_Ring-Sofia_Sofia_Region.html" target="_blank" rel="noopener">Sofia Karting Ring →</a></p><span class="cost">~€15–25 / session</span></div>
+      <div class="card"><span class="num3">3</span><span class="ic">🎨</span><h3>Hands-on workshops<span class="cy">работилници · workshops</span></h3><p>Roll banitsa in a cooking class, throw pottery, or learn the horo — brilliant for a group. <a href="https://www.getyourguide.com/sofia-l158/sofia-banitsa-pastry-class-with-a-local-with-bulgarian-wine-t1007076/" target="_blank" rel="noopener">Book a banitsa class →</a></p><span class="cost">~€25–45 / person</span></div>
     </div>
     <div class="notes">
-      <div class="note"><b>Adventure park &amp; ziplines</b> — <span class="cyt">Коколандия (Kokolandia)</span> · rope courses and zips in the city's Borisova Garden. <span class="np">~€10–18</span></div>
-      <div class="note"><b>Paragliding off Vitosha</b> — <span class="cyt">парапланер (paragliding)</span> · tandem flights with the whole city laid out below. <span class="np">~€80–110</span></div>
-      <div class="note"><b>White-water rafting</b> — <span class="cyt">рафтинг (rafting)</span> · day trips on the Struma river, a couple of hours out. <span class="np">~€35–55</span></div>
+      <div class="note"><b><a href="https://www.tripadvisor.com/Attraction_Review-g294452-d10583980-Reviews-Kokolandia_Adventure_Park-Sofia_Sofia_Region.html" target="_blank" rel="noopener">Adventure park &amp; ziplines</a></b> — <span class="cyt">Коколандия (Kokolandia)</span> · rope courses and zips in Borisova Garden. <span class="np">~€10–18</span></div>
+      <div class="note"><b><a href="https://www.getyourguide.com/sofia-l158/paragliding-sofia-from-above-t83145/" target="_blank" rel="noopener">Paragliding off Vitosha</a></b> — <span class="cyt">парапланер (paragliding)</span> · tandem flights with the whole city below. <span class="np">~€80–110</span></div>
+      <div class="note"><b><a href="https://www.getyourguide.com/sofia-l158/sofia-struma-river-rafting-tour-t231297/" target="_blank" rel="noopener">White-water rafting</a></b> — <span class="cyt">рафтинг (rafting)</span> · Struma river day trips from Sofia. <span class="np">~€35–55</span></div>
       <div class="note"><b>Trampolines, escape rooms &amp; clubs</b> — <span class="cyt">до сутринта (till morning)</span> · trampoline parks, VR, craft-beer halls and techno till dawn. <span class="np">~€10–20</span></div>
     </div>
   </div>
@@ -607,8 +609,8 @@
 <div class="shev-band"></div>
 
 <footer>
-  <div class="cyr">Честит 33-ти, Кевин</div>
-  <p style="margin-top:4px;font-style:italic;">Happy 33rd, Kevin</p>
+  <div class="cyr">Наздраве, приятели!</div>
+  <p style="margin-top:4px;font-style:italic;">Cheers, friends!</p>
   <p>Kevin's 33rd Birthday &nbsp;·&nbsp; August 11–15, 2027 &nbsp;·&nbsp; София · Sofia, Bulgaria</p>
   <p><a href="2026/">Revisit the 2026 celebration →</a></p>
   <div class="three-dot">◆ ◆ ◆</div>

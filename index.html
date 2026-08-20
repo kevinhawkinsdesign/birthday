@@ -162,6 +162,17 @@
   .cost { display: inline-block; margin-top: 14px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.5px; color: var(--green-d); background: rgba(0,155,116,0.1); border: 1px solid rgba(0,155,116,0.35); padding: 4px 12px; border-radius: 20px; }
   .cost.red { color: var(--red-d); background: rgba(208,32,47,0.08); border-color: rgba(208,32,47,0.3); }
 
+  /* note lists (must-see extras / customs) */
+  .notes { max-width: 920px; margin: 34px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 30px; }
+  .note { position: relative; padding: 13px 0 13px 22px; border-bottom: 1px dashed rgba(36,23,19,0.16); font-size: 0.92rem; color: var(--ink); }
+  .note::before { content: '◆'; position: absolute; left: 0; top: 16px; color: var(--red); font-size: 0.6rem; }
+  .note b { font-weight: 700; } .note .cyt { color: var(--green-d); font-style: italic; }
+  .note .np { display: inline-block; margin-left: 4px; font-size: 0.7rem; font-weight: 700; color: var(--green-d); background: rgba(0,155,116,0.1); border: 1px solid rgba(0,155,116,0.3); padding: 1px 9px; border-radius: 20px; white-space: nowrap; }
+  .notes.light .note { color: var(--paper); border-color: rgba(255,255,255,0.2); }
+  .notes.light .note .cyt { color: #cfe9dd; }
+  .notes.light .note .np { color: #fff; background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.32); }
+  @media (max-width: 700px) { .notes { grid-template-columns: 1fr; } }
+
   .band-green { background: var(--green-d); color: var(--paper); }
   .band-green .sec-label { color: #ffe9b0; } .band-green .sec-label .cy { color: #cfe9dd; }
   .band-green .sec-title { color: #fff; } .band-green .sec-sub { color: rgba(255,255,255,0.82); }
@@ -252,6 +263,8 @@
     <li><a href="#plan">Plan</a></li>
     <li><a href="#villa">The Villa</a></li>
     <li><a href="#do">Do</a></li>
+    <li><a href="#see">See</a></li>
+    <li><a href="#culture">Culture</a></li>
     <li><a href="#eat">Eat</a></li>
     <li><a href="#stay">Stay</a></li>
     <li><a href="#travel">Fly</a></li>
@@ -346,7 +359,7 @@
       <div class="plan-row"><div class="plan-date"><div class="d">13</div><div class="dow">Thu</div></div>
         <div class="plan-body"><span class="tag">Open</span><h4>Saunas, spa &amp; a night out 🥂</h4><p>A slow spa morning, then dinner and Sofia's nightlife — the city stays up late.</p></div></div>
       <div class="plan-row"><div class="plan-date"><div class="d">14</div><div class="dow">Fri</div></div>
-        <div class="plan-body"><span class="tag" style="color:var(--red);border-color:var(--red);">★ The Main Event</span><h4>Villa day on Iskar Lake 🎉</h4><p>The big one — a full day at a lakeside villa on Iskar Lake. Lunch by the water, an easy afternoon in the sun, rolling into a long, family-style dinner. <a href="#villa" style="color:var(--red);font-weight:700;text-decoration:none;">See the villa ↓</a></p></div></div>
+        <div class="plan-body"><span class="tag" style="color:var(--red);border-color:var(--red);">★ The Main Event</span><h4>Villa day on Iskar Lake 🎉</h4><p>The big one — a full day at a lakeside villa on Iskar Lake. Lunch by the water, an easy afternoon in the sun, rolling into a long, family-style dinner. <strong>Transport to/from Sofia and the dinner are covered.</strong> <a href="#villa" style="color:var(--red);font-weight:700;text-decoration:none;">See the villa ↓</a></p></div></div>
       <div class="plan-row"><div class="plan-date"><div class="d">15</div><div class="dow">Sat</div></div>
         <div class="plan-body"><span class="tag">Wind Down</span><h4>Slow goodbyes 👋</h4><p>Long breakfast, a final wander, and farewells before the journey home.</p></div></div>
     </div>
@@ -372,13 +385,14 @@
         <ul class="feat">
           <li>Lakefront with a private dock &amp; swimming</li>
           <li>Outdoor hot tub &amp; sauna</li>
-          <li>Long table for a family-style dinner</li>
+          <li><strong>Transport to &amp; from Sofia — covered</strong></li>
+          <li><strong>Lunch &amp; a family-style dinner — covered</strong></li>
           <li>~40 min from central Sofia</li>
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href="https://www.airbnb.co.uk/rooms/1287600266890196976?unique_share_id=e92cae66-5c57-406c-a3a9-b262362bcba1&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noopener" class="btn btn-red btn-sm">See the likely villa →</a>
         </div>
-        <p style="font-size:0.8rem;color:var(--stone);margin-top:12px;">The villa day is hosted — food &amp; drink covered. <em>(Venue to be confirmed.)</em></p>
+        <p style="font-size:0.8rem;color:var(--stone);margin-top:12px;">The villa day is hosted — <strong>transport to/from Sofia and the dinner are covered</strong>, so just bring yourself. <em>(Venue to be confirmed.)</em></p>
       </div>
     </div>
   </div>
@@ -411,6 +425,50 @@
   <img src="images/nightlife.jpg" alt="Sofia nightlife — confetti and a packed dance floor" loading="lazy" />
   <div class="cap"><h3>Late nights</h3><p>Three toasts in, and the night is just starting</p></div>
 </div>
+
+<div class="shev-band"></div>
+
+<!-- MUST-SEE SITES -->
+<section id="see" class="wrap">
+  <div class="inner reveal">
+    <div class="sec-label">Must-see <span class="cy">· забележителности (landmarks)</span></div>
+    <h2 class="sec-title">What to see</h2>
+    <p class="sec-sub">Two thousand years of history in one walkable centre — plus a UNESCO monastery worth the day trip.</p>
+    <div class="trio">
+      <div class="card"><span class="num3">1</span><span class="ic">⛪</span><h3>Alexander Nevsky<span class="cy">Александър Невски · the cathedral</span></h3><p>The gold-domed cathedral that defines Sofia's skyline — one of the largest Orthodox churches on earth. Don't skip the icon museum in the crypt.</p><span class="cost">Cathedral €0 · crypt museum ~€5</span></div>
+      <div class="card"><span class="num3">2</span><span class="ic">🏔️</span><h3>Rila Monastery<span class="cy">Рилски манастир · UNESCO</span></h3><p>Bulgaria's most famous sight — a candy-striped, frescoed monastery in the mountains, ~2h south. The best day trip from the city.</p><span class="cost">Entry €0 · day tour ~€40–60</span></div>
+      <div class="card"><span class="num3">3</span><span class="ic">🖼️</span><h3>Boyana Church<span class="cy">Боянска църква · UNESCO</span></h3><p>A tiny medieval church at the foot of Vitosha, with 13th-century frescoes that pre-date the Renaissance. Ten quiet minutes of genius.</p><span class="cost">Entry ~€5</span></div>
+    </div>
+    <div class="notes">
+      <div class="note"><b>Rotunda of St George</b> — <span class="cyt">Ротонда „Свети Георги" (St George)</span> · Sofia's oldest building, a 4th-century Roman rotunda behind the presidency. <span class="np">€0</span></div>
+      <div class="note"><b>Sveta Sofia &amp; Serdica</b> — <span class="cyt">Света София (St Sofia)</span> · the 6th-c church that named the city, above Roman ruins you can walk under the metro. <span class="np">€0–6</span></div>
+      <div class="note"><b>Vitosha &amp; Boyana Waterfall</b> — <span class="cyt">Витоша (Vitosha)</span> · the mountain on the city's doorstep, hikeable straight from the tram. <span class="np">€0</span></div>
+      <div class="note"><b>Central Market Hall &amp; baths</b> — <span class="cyt">Централни хали (market hall)</span> · food hall, Ottoman mosque and the mineral baths, all in a row. <span class="np">€0</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="shev-band"></div>
+
+<!-- LOCAL TRADITIONS -->
+<section id="culture" class="wrap band-green">
+  <div class="inner reveal">
+    <div class="sec-label" style="color:#ffe9b0;">Traditions <span class="cy">· обичаи (customs)</span></div>
+    <h2 class="sec-title">Know before you go</h2>
+    <p class="sec-sub">A little folklore goes a long way — here's what makes Bulgaria, Bulgaria.</p>
+    <div class="trio">
+      <div class="card"><span class="num3">1</span><span class="ic">🧵</span><h3>Martenitsa<span class="cy">мартеница · red &amp; white threads</span></h3><p>Each spring Bulgarians wear red-and-white yarn for health, then tie it to a blossoming tree when they spot the first stork. It's why our whole theme is red &amp; white.</p></div>
+      <div class="card"><span class="num3">2</span><span class="ic">🥂</span><h3>Nazdrave!<span class="cy">наздраве · cheers</span></h3><p>Toasting is serious — lock eyes, clink, and never toast with an empty glass. Rakia (fruit brandy) comes first, sipped slowly with a shopska salad.</p></div>
+      <div class="card"><span class="num3">3</span><span class="ic">🔄</span><h3>Yes means no<span class="cy">да / не · the head-shake</span></h3><p>Bulgaria's famous quirk: a nod can mean "no" and a head-shake means "yes." When in doubt, say it out loud — <strong>да</strong> (yes) or <strong>не</strong> (no).</p></div>
+    </div>
+    <div class="notes light">
+      <div class="note"><b>Horo</b> — <span class="cyt">хоро (the folk dance)</span> · a circle dance; join hands and follow the person on your right. <span class="np">everyone dances</span></div>
+      <div class="note"><b>Name days</b> — <span class="cyt">имен ден (name day)</span> · share a saint's name and you're celebrated like it's your birthday. <span class="np">no invite needed</span></div>
+      <div class="note"><b>Banitsa &amp; luck</b> — <span class="cyt">баница (cheese pastry)</span> · the New Year one hides fortunes and a lucky coin. <span class="np">find the coin</span></div>
+      <div class="note"><b>Guest is king</b> — <span class="cyt">гостоприемство (hospitality)</span> · expect to be over-fed and out-toasted. Bring a small gift; shoes off indoors. <span class="np">say да to seconds</span></div>
+    </div>
+  </div>
+</section>
 
 <div class="shev-band"></div>
 
@@ -480,7 +538,7 @@
       <div class="row"><span>Rakia shot / glass of wine</span><span>€2–6</span></div>
       <div class="row"><span>Cocktail / club entry</span><span>€5–12</span></div>
       <div class="row"><span>Vitosha gondola / spa day</span><span>€8–50</span></div>
-      <div class="row"><span>Villa party day (Fri)</span><span>€0 · included 🎉</span></div>
+      <div class="row"><span>Villa day — transport &amp; dinner (Fri)</span><span>€0 · covered 🎉</span></div>
     </div>
   </div>
 </section>

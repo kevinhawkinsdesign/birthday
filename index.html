@@ -149,7 +149,8 @@
   .sec-sub { text-align: center; max-width: 640px; margin: 0 auto 40px; color: var(--stone); }
 
   .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .card { background: var(--white); border: 1px solid rgba(36,23,19,0.1); border-top: 4px solid var(--red); padding: 30px 26px; position: relative; transition: transform .3s ease, box-shadow .3s ease, border-color .3s; }
+  .card { background: var(--white); color: var(--ink); border: 1px solid rgba(36,23,19,0.1); border-top: 4px solid var(--red); padding: 30px 26px; position: relative; transition: transform .3s ease, box-shadow .3s ease, border-color .3s; }
+  .card h3 { color: var(--ink); }
   .card:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(36,23,19,0.14); }
   .card:nth-child(3n+2){ border-top-color: var(--green); }
   .card:nth-child(3n){ border-top-color: var(--gold); }
@@ -429,7 +430,7 @@
     <h2 class="sec-title">Hike, soak &amp; dance</h2>
     <p class="sec-sub">Sofia packs a mountain, mineral springs, and a serious nightlife into one very good-value city.</p>
     <div class="trio">
-      <div class="card"><span class="num3">1</span><span class="ic">🥾</span><h3>Hiking Vitosha<span class="cy">Черни връх · Cherni Vrah, 2290m</span></h3><p>The mountain rises straight out of the city. Trails to Cherni Vrah, the Boyana waterfall, and stone rivers — the metro gets you to the foot of it.</p><span class="cost">Trails €0 · gondola ~€8 · guided ~€30</span></div>
+      <div class="card"><span class="num3">1</span><span class="ic">🥾</span><h3>Hiking Vitosha<span class="cy">Черни връх · Cherni Vrah, 2290m</span></h3><p>The mountain rises straight out of the city. Trails to Cherni Vrah, the Boyana waterfall, and stone rivers — the metro gets you to the foot of it. <a href="https://en.wikipedia.org/wiki/Cherni_Vrah" target="_blank" rel="noopener">Cherni Vrah →</a></p><span class="cost">Trails €0 · gondola ~€8 · guided ~€30</span></div>
       <div class="card"><span class="num3">2</span><span class="ic">♨️</span><h3>Saunas &amp; spa<span class="cy">минерални бани · mineral baths</span></h3><p>Sofia sits on hot mineral springs — fill your bottle at the public fountains, book a hotel spa day, or soak in the villa's own hot tub &amp; sauna.</p><span class="cost">Public springs €0 · spa day €25–50</span></div>
       <div class="card"><span class="num3">3</span><span class="ic">🪩</span><h3>Nightlife<span class="cy">до късно · until late</span></h3><p>Rooftop bars, cocktail dens and clubs that go till dawn. Central bars are walkable and the drinks are low-priced.</p><span class="cost">Entry €5–12 · beer €2–3 · cocktail €5–8</span></div>
     </div>
@@ -451,15 +452,15 @@
     <h2 class="sec-title">What to see</h2>
     <p class="sec-sub">Skip the church tour — mountains, Roman ruins under the streets, and one very strange Soviet UFO.</p>
     <div class="trio">
-      <div class="card"><span class="num3">1</span><span class="ic">⛰️</span><h3>Vitosha Mountain<span class="cy">Витоша · the city's mountain</span></h3><p>A whole mountain on the doorstep. Ride the cable car up, hike to Cherni Vrah (2290m), find the Boyana waterfall and the surreal "Golden Bridges" stone river — with sunset views over the whole city.</p><span class="cost">Trails €0 · cable car ~€8</span></div>
-      <div class="card"><span class="num3">2</span><span class="ic">🏞️</span><h3>Seven Rila Lakes<span class="cy">Седемте езера · glacial lakes</span></h3><p>Bulgaria's most jaw-dropping day trip — a chairlift and a hike up to seven mirror-still glacial lakes strung across the Rila massif. Bring good shoes and a camera.</p><span class="cost">Chairlift ~€10 · day tour ~€40–60</span></div>
-      <div class="card"><span class="num3">3</span><span class="ic">🏛️</span><h3>Serdica Roman ruins<span class="cy">Сердика · the ancient city</span></h3><p>Walk through 2,000-year-old Roman streets, baths and mosaics excavated right under the modern centre — open-air, free, and next to the metro.</p><span class="cost">€0 · open-air</span></div>
+      <div class="card"><span class="num3">1</span><span class="ic">⛰️</span><h3>Vitosha Mountain<span class="cy">Витоша · the city's mountain</span></h3><p>A whole mountain on the doorstep. Ride the cable car up, hike to Cherni Vrah (2290m), find the Boyana waterfall and the surreal "Golden Bridges" stone river — with sunset views over the whole city. <a href="https://en.wikipedia.org/wiki/Vitosha" target="_blank" rel="noopener">More →</a></p><span class="cost">Trails €0 · cable car ~€8</span></div>
+      <div class="card"><span class="num3">2</span><span class="ic">🏞️</span><h3>Seven Rila Lakes<span class="cy">Седемте езера · glacial lakes</span></h3><p>Bulgaria's most jaw-dropping day trip — a chairlift and a hike up to seven mirror-still glacial lakes across the Rila massif. Bring good shoes and a camera. <a href="https://en.wikipedia.org/wiki/Seven_Rila_Lakes" target="_blank" rel="noopener">More →</a></p><span class="cost">Chairlift ~€10 · day tour ~€40–60</span></div>
+      <div class="card"><span class="num3">3</span><span class="ic">🏛️</span><h3>Serdica Roman ruins<span class="cy">Сердика · the ancient city</span></h3><p>Walk through 2,000-year-old Roman streets, baths and mosaics excavated right under the modern centre — open-air, free, and next to the metro. <a href="https://en.wikipedia.org/wiki/Serdica" target="_blank" rel="noopener">More →</a></p><span class="cost">€0 · open-air</span></div>
     </div>
     <div class="notes">
-      <div class="note"><b>Buzludzha Monument</b> — <span class="cyt">Бузлуджа (Buzludzha)</span> · the abandoned UFO-shaped communist monument on a mountaintop — a surreal photo pilgrimage. <span class="np">€0 exterior</span></div>
-      <div class="note"><b>Museum of Socialist Art</b> — <span class="cyt">соцарт (socialist art)</span> · an open-air park of toppled communist statues and the old red star. <span class="np">~€5</span></div>
-      <div class="note"><b>Vitosha Boulevard</b> — <span class="cyt">Витошка (Vitosha Blvd)</span> · the pedestrian café-and-people-watching heart of the city. <span class="np">€0</span></div>
-      <div class="note"><b>Plovdiv day trip</b> — <span class="cyt">Пловдив (Plovdiv)</span> · Europe's oldest living city — a Roman theatre and a candy-coloured old town, ~1.5h away. <span class="np">Theatre ~€3</span></div>
+      <div class="note"><b><a href="https://en.wikipedia.org/wiki/Buzludzha_monument" target="_blank" rel="noopener">Buzludzha Monument</a></b> — <span class="cyt">Бузлуджа (Buzludzha)</span> · the abandoned UFO-shaped communist monument on a mountaintop — a surreal photo pilgrimage. <span class="np">€0 exterior</span></div>
+      <div class="note"><b><a href="https://en.wikipedia.org/wiki/Museum_of_Socialist_Art" target="_blank" rel="noopener">Museum of Socialist Art</a></b> — <span class="cyt">соцарт (socialist art)</span> · an open-air park of toppled communist statues and the old red star. <span class="np">~€5</span></div>
+      <div class="note"><b><a href="https://en.wikipedia.org/wiki/Vitosha_Boulevard" target="_blank" rel="noopener">Vitosha Boulevard</a></b> — <span class="cyt">Витошка (Vitosha Blvd)</span> · the pedestrian café-and-people-watching heart of the city. <span class="np">€0</span></div>
+      <div class="note"><b><a href="https://en.wikipedia.org/wiki/Plovdiv" target="_blank" rel="noopener">Plovdiv day trip</a></b> — <span class="cyt">Пловдив (Plovdiv)</span> · Europe's oldest living city — a Roman theatre and a candy-coloured old town, ~1.5h away. <span class="np">Theatre ~€3</span></div>
     </div>
   </div>
 </section>
@@ -517,7 +518,7 @@
     <h2 class="sec-title">Come hungry</h2>
     <p class="sec-sub">Some of the best value eating in Europe — big plates, cold rakia, and a €15 feast.</p>
     <div class="trio">
-      <div class="card"><span class="num3">🥗</span><span class="ic">🥗</span><h3>The classics<span class="cy">шопска салата · shopska salad</span></h3><p>Shopska salad, banitsa, tarator, grilled kebapche &amp; kavarma. A proper mehana (tavern) dinner with drinks is hard to beat.</p><span class="cost">Mehana dinner €12–20pp · street snack €1–2</span></div>
+      <div class="card"><span class="num3">🥗</span><span class="ic">🥗</span><h3>The classics<span class="cy">шопска салата · shopska salad</span></h3><p>Shopska salad, banitsa, tarator, grilled kebapche &amp; kavarma. A proper mehana (tavern) dinner with drinks is hard to beat. <a href="https://www.tripadvisor.com/Restaurants-g294452-Sofia_Sofia_Region.html" target="_blank" rel="noopener">Top restaurants →</a></p><span class="cost">Mehana dinner €12–20pp · street snack €1–2</span></div>
       <div class="card"><span class="num3">🍷</span><span class="ic">🍷</span><h3>Rakia &amp; wine<span class="cy">наздраве · cheers</span></h3><p>Bulgaria's fruit brandy is the national toast — sip it slow, three-deep. The local wine (Melnik, Mavrud) is excellent and low-priced.</p><span class="cost">Rakia shot ~€2 · wine €4–6/glass</span></div>
       <div class="card"><span class="num3">☕</span><span class="ic">☕</span><h3>Café culture<span class="cy">кафе · coffee</span></h3><p>Leafy terraces, third-wave coffee, and banitsa-and-boza breakfasts. The city runs on long, unhurried café sittings.</p><span class="cost">Coffee €1.5–2.5 · lunch €6–10</span></div>
     </div>
@@ -540,11 +541,11 @@
     <h2 class="sec-title">Central hotels</h2>
     <p class="sec-sub">Base yourself in the centre — everything's walkable, and even the nice places stay under €230. Book early for August.</p>
     <div class="trio">
-      <div class="card"><span class="num3">€20</span><span class="ic">🎒</span><h3>Hostel Mostel<span class="cy">dorms &amp; private rooms</span></h3><p>Legendary Sofia hostel with dorms and privates, breakfast &amp; dinner included. Great for the crew who'd rather spend on rakia.</p><span class="cost">≈ €20–40 / night</span></div>
-      <div class="card"><span class="num3">€90</span><span class="ic">🏨</span><h3>Niky · R34 · Sofia Place<span class="cy">central 3–4★ hotels</span></h3><p>Comfortable boutique hotels a short walk from Nevsky and Vitosha Blvd. The sweet spot for most guests.</p><span class="cost">≈ €70–120 / night</span></div>
-      <div class="card"><span class="num3">€180</span><span class="ic">🛎️</span><h3>Sense · Grand Hotel Sofia<span class="cy">rooftop &amp; spa, 5★</span></h3><p>Rooftop bars, spas and sweeping city views. Five-star Sofia still costs about €180 a night.</p><span class="cost">≈ €150–230 / night</span></div>
+      <div class="card"><span class="num3">€20</span><span class="ic">🎒</span><h3>Hostel Mostel<span class="cy">dorms &amp; private rooms</span></h3><p>Legendary Sofia hostel with dorms and privates, breakfast &amp; dinner included. Great for the crew who'd rather spend on rakia. <a href="https://www.booking.com/searchresults.html?ss=Hostel%20Mostel%20Sofia" target="_blank" rel="noopener">Check availability →</a></p><span class="cost">≈ €20–40 / night</span></div>
+      <div class="card"><span class="num3">€90</span><span class="ic">🏨</span><h3>Niky · R34 · Sofia Place<span class="cy">central 3–4★ hotels</span></h3><p>Comfortable boutique hotels a short walk from Nevsky and Vitosha Blvd. The sweet spot for most guests. <a href="https://www.booking.com/searchresults.html?ss=Niky%20Hotel%20Sofia" target="_blank" rel="noopener">Check availability →</a></p><span class="cost">≈ €70–120 / night</span></div>
+      <div class="card"><span class="num3">€180</span><span class="ic">🛎️</span><h3>Sense · Grand Hotel Sofia<span class="cy">rooftop &amp; spa, 5★</span></h3><p>Rooftop bars, spas and sweeping city views. Five-star Sofia still costs about €180 a night. <a href="https://www.booking.com/searchresults.html?ss=Sense%20Hotel%20Sofia" target="_blank" rel="noopener">Check availability →</a></p><span class="cost">≈ €150–230 / night</span></div>
     </div>
-    <p style="text-align:center;color:var(--stone);font-size:0.85rem;margin-top:24px;">Coming as a group? A central apartment on Airbnb runs ~€60–110/night for 2–3 bedrooms.</p>
+    <p style="text-align:center;color:var(--stone);font-size:0.85rem;margin-top:24px;">Coming as a group? A central apartment on <a href="https://www.airbnb.com/s/Sofia--Bulgaria/homes" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">Airbnb</a> runs ~€60–110/night for 2–3 bedrooms.</p>
   </div>
 </section>
 
@@ -561,7 +562,7 @@
       <div class="card"><span class="num3">✈</span><span class="ic">🇪🇺</span><h3>From Europe</h3><p>Direct from most major hubs — Vienna, Berlin, Paris, Milan, Istanbul. 2–3h and frequent.</p><span class="cost">≈ €50–160 return</span></div>
       <div class="card"><span class="num3">✈</span><span class="ic">🌍</span><h3>From further</h3><p>One easy connection via a European or Istanbul hub. From the US, count on ~10–13h total.</p><span class="cost">≈ €600–880 return</span></div>
     </div>
-    <p style="text-align:center;color:rgba(255,255,255,0.85);font-size:0.9rem;margin-top:24px;">From SOF it's ~20 min into the centre — <strong>metro ~€0.80</strong> or a <strong>taxi ~€8–12</strong>. Bulgaria adopted the <strong>euro (€)</strong> in 2026, though some prices may still show лв (lev).</p>
+    <p style="text-align:center;color:rgba(255,255,255,0.85);font-size:0.9rem;margin-top:24px;">Compare fares on <a href="https://www.skyscanner.net/transport/flights-to/sof/" target="_blank" rel="noopener" style="color:#ffe1a8;font-weight:700;">Skyscanner</a>. From SOF it's ~20 min into the centre — <strong>metro ~€0.80</strong> or a <strong>taxi ~€8–12</strong>. Bulgaria adopted the <strong>euro (€)</strong> in 2026, though some prices may still show лв (lev).</p>
   </div>
 </section>
 

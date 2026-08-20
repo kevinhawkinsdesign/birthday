@@ -173,6 +173,19 @@
   .notes.light .note .np { color: #fff; background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.32); }
   @media (max-width: 700px) { .notes { grid-template-columns: 1fr; } }
 
+  /* food gallery (placeholder tiles until real photos) */
+  .food-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 34px; }
+  .food { position: relative; aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; transition: transform .3s ease; box-shadow: 0 6px 16px rgba(36,23,19,0.12); }
+  .food:hover { transform: translateY(-5px); }
+  .food .fe { font-size: 2.7rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+  .food figcaption { margin-top: 8px; font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.98rem; }
+  .food figcaption .cyt { display: block; font-family: 'PT Serif'; font-style: italic; font-weight: 400; font-size: 0.78rem; opacity: 0.88; }
+  .food:nth-child(1){ background: linear-gradient(135deg,#0A6B50,#009B74); }
+  .food:nth-child(2){ background: linear-gradient(135deg,#C99A3C,#9E7420); }
+  .food:nth-child(3){ background: linear-gradient(135deg,#D0202F,#9E121E); }
+  .food:nth-child(4){ background: linear-gradient(135deg,#3a231b,#5a3a2c); }
+  @media (max-width: 700px) { .food-grid { grid-template-columns: 1fr 1fr; } }
+
   .band-green { background: var(--green-d); color: var(--paper); }
   .band-green .sec-label { color: #ffe9b0; } .band-green .sec-label .cy { color: #cfe9dd; }
   .band-green .sec-title { color: #fff; } .band-green .sec-sub { color: rgba(255,255,255,0.82); }
@@ -265,6 +278,7 @@
     <li><a href="#do">Do</a></li>
     <li><a href="#see">See</a></li>
     <li><a href="#culture">Culture</a></li>
+    <li><a href="#play">Play</a></li>
     <li><a href="#eat">Eat</a></li>
     <li><a href="#stay">Stay</a></li>
     <li><a href="#travel">Fly</a></li>
@@ -472,6 +486,28 @@
 
 <div class="shev-band"></div>
 
+<!-- BEYOND THE MUSEUMS / PLAY -->
+<section id="play" class="wrap" style="background:var(--paper-2);">
+  <div class="inner reveal">
+    <div class="sec-label">Beyond the museums <span class="cy">· забавление (fun)</span></div>
+    <h2 class="sec-title">For the restless</h2>
+    <p class="sec-sub">Not a museum in sight — the stuff a 20-to-35 crowd actually wants to do.</p>
+    <div class="trio">
+      <div class="card"><span class="num3">1</span><span class="ic">🎤</span><h3>Live music &amp; concerts<span class="cy">концерти · concerts</span></h3><p>International acts pass through Arena Sofia and NDK, and summer fills the city with open-air festivals. We'll check the listings for our dates.</p><span class="cost">Tickets ~€20–60</span></div>
+      <div class="card"><span class="num3">2</span><span class="ic">🏎️</span><h3>Go-karting<span class="cy">картинг · karting</span></h3><p>Indoor and outdoor tracks around Sofia for a proper race — helmets, timing screens and bragging rights for the crew.</p><span class="cost">~€15–25 / session</span></div>
+      <div class="card"><span class="num3">3</span><span class="ic">🎨</span><h3>Hands-on workshops<span class="cy">работилници · workshops</span></h3><p>Roll banitsa in a cooking class, throw pottery, blend rose-oil perfume, or learn the horo — brilliant for a group afternoon.</p><span class="cost">~€25–45 / person</span></div>
+    </div>
+    <div class="notes">
+      <div class="note"><b>Adventure park &amp; ziplines</b> — <span class="cyt">Коколандия (Kokolandia)</span> · rope courses and zips in the city's Borisova Garden. <span class="np">~€10–18</span></div>
+      <div class="note"><b>Paragliding off Vitosha</b> — <span class="cyt">парапланер (paragliding)</span> · tandem flights with the whole city laid out below. <span class="np">~€80–110</span></div>
+      <div class="note"><b>White-water rafting</b> — <span class="cyt">рафтинг (rafting)</span> · day trips on the Struma river, a couple of hours out. <span class="np">~€35–55</span></div>
+      <div class="note"><b>Trampolines, escape rooms &amp; clubs</b> — <span class="cyt">до сутринта (till morning)</span> · trampoline parks, VR, craft-beer halls and techno till dawn. <span class="np">~€10–20</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="shev-band"></div>
+
 <!-- EAT -->
 <section id="eat" class="wrap">
   <div class="inner reveal">
@@ -483,6 +519,13 @@
       <div class="card"><span class="num3">🍷</span><span class="ic">🍷</span><h3>Rakia &amp; wine<span class="cy">наздраве · cheers</span></h3><p>Bulgaria's fruit brandy is the national toast — sip it slow, three-deep. The local wine (Melnik, Mavrud) is excellent and low-priced.</p><span class="cost">Rakia shot ~€2 · wine €4–6/glass</span></div>
       <div class="card"><span class="num3">☕</span><span class="ic">☕</span><h3>Café culture<span class="cy">кафе · coffee</span></h3><p>Leafy terraces, third-wave coffee, and banitsa-and-boza breakfasts. The city runs on long, unhurried café sittings.</p><span class="cost">Coffee €1.5–2.5 · lunch €6–10</span></div>
     </div>
+    <div class="food-grid">
+      <figure class="food"><span class="fe">🥗</span><figcaption>Shopska salad<span class="cyt">шопска салата</span></figcaption></figure>
+      <figure class="food"><span class="fe">🥧</span><figcaption>Banitsa<span class="cyt">баница</span></figcaption></figure>
+      <figure class="food"><span class="fe">🍢</span><figcaption>Kebapche<span class="cyt">кебапче</span></figcaption></figure>
+      <figure class="food"><span class="fe">🥃</span><figcaption>Rakia<span class="cyt">ракия</span></figcaption></figure>
+    </div>
+    <p style="text-align:center;color:var(--stone);font-size:0.8rem;margin-top:14px;">A taste of the table — real food photos coming soon.</p>
   </div>
 </section>
 
